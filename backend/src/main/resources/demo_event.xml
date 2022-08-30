@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+	<guests>
+		<guest id="Entelesky_Lucas" state="E">
+			<lastname>Entelesky</lastname>
+			<name>Lucas</name>
+			<quantity>1</quantity>
+			<table>0</table>
+			<cubierto>Infantil</cubierto>
+			<menu>Infantil</menu>
+			<babychair>true</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Entelesky_Marcos_y_Graciela" state="E">
+			<lastname>Entelesky</lastname>
+			<name>Marcos y Graciela</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Cantilo_Daniela_y_Ludmila" state="E">
+			<lastname>Cantilo</lastname>
+			<name>Daniela y Ludmila</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Menor</cubierto>
+			<menu>Infantil</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Micenberg_Maximo_y_Laura" state="E">
+			<lastname>Micenberg</lastname>
+			<name>Maximo y Laura</name>
+			<quantity>2</quantity>
+			<table>8</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Giromini_Lautaro_y_Mariana" state="E">
+			<lastname>Giromini</lastname>
+			<name>Lautaro y Mariana</name>
+			<quantity>2</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Pakaliki_Samuel_y_Paulina" state="E">
+			<lastname>Pakaliki</lastname>
+			<name>Samuel y Paulina</name>
+			<quantity>2</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Menona_Sebastian_y_Fernanda" state="E">
+			<lastname>Menona</lastname>
+			<name>Sebastian y Fernanda</name>
+			<quantity>2</quantity>
+			<table>6</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Garmendia_Natalio_y_Lorena" state="E">
+			<lastname>Garmendia</lastname>
+			<name>Natalio y Lorena</name>
+			<quantity>2</quantity>
+			<table>2</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Karam_German_y_Julia" state="E">
+			<lastname>Karam</lastname>
+			<name>German y Julia</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Penani_Marina_y_esposo" state="E">
+			<lastname>Penani</lastname>
+			<name>Marina y esposo</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Del_Pilar_Daniela_y_Ernesto" state="E">
+			<lastname>Del Pilar</lastname>
+			<name>Daniela y Ernesto</name>
+			<quantity>2</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Bertulinni_Luciana" state="E">
+			<lastname>Bertulinni</lastname>
+			<name>Luciana</name>
+			<quantity>1</quantity>
+			<table>6</table>
+			<cubierto>Infantil</cubierto>
+			<menu>Infantil</menu>
+			<babychair>true</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Lorden_Javier_y_Eugenia" state="E">
+			<lastname>Lorden</lastname>
+			<name>Javier y Eugenia</name>
+			<quantity>2</quantity>
+			<table>12</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments>trae las alizanzas</comments>
+		</guest>
+		<guest id="Ravazzo_Federico_y_Carolina" state="E">
+			<lastname>Ravazzo</lastname>
+			<name>Federico y Carolina</name>
+			<quantity>2</quantity>
+			<table>11</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments>sin sal</comments>
+		</guest>
+		<guest id="Cantilo_Javier" state="E">
+			<lastname>Cantilo</lastname>
+			<name>Javier</name>
+			<quantity>1</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Celíaco</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Sarlo_Sara" state="E">
+			<lastname>Sarlo</lastname>
+			<name>Sara</name>
+			<quantity>1</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Vegetariano</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Alonso_Omar_y_Ana" state="E">
+			<lastname>Alonso</lastname>
+			<name>Omar y Ana</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Menor</cubierto>
+			<menu>Celíaco</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Ruiz_Lito_y_Silvana" state="E">
+			<lastname>Ruiz</lastname>
+			<name>Lito y Silvana</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Mesa dulce</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Grabier_Anibal_y_Monica" state="E">
+			<lastname>Grabier</lastname>
+			<name>Anibal y Monica</name>
+			<quantity>2</quantity>
+			<table>12</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Abete_Cristian_y_Sra" state="E">
+			<lastname>Abete</lastname>
+			<name>Cristian y Sra</name>
+			<quantity>2</quantity>
+			<table>1</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Mulser_Javier_y_Erin" state="E">
+			<lastname>Mulser</lastname>
+			<name>Javier y Erin</name>
+			<quantity>2</quantity>
+			<table>1</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Carvajal_Claudio_y_Sra" state="E">
+			<lastname>Carvajal</lastname>
+			<name>Claudio y Sra</name>
+			<quantity>2</quantity>
+			<table>6</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Mulser_Marina" state="E">
+			<lastname>Mulser</lastname>
+			<name>Marina</name>
+			<quantity>2</quantity>
+			<table>4</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Lorden_Ricardo_y_Liliana" state="E">
+			<lastname>Lorden</lastname>
+			<name>Ricardo y Liliana</name>
+			<quantity>2</quantity>
+			<table>8</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Nederboim_Antonio" state="E">
+			<lastname>Nederboim</lastname>
+			<name>Antonio</name>
+			<quantity>1</quantity>
+			<table>11</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Otamendi_Luiza" state="E">
+			<lastname>Otamendi</lastname>
+			<name>Luiza</name>
+			<quantity>1</quantity>
+			<table>11</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Otamendi_Maria_y_Lorenzo" state="E">
+			<lastname>Otamendi</lastname>
+			<name>Maria y Lorenzo</name>
+			<quantity>2</quantity>
+			<table>11</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Domingues_Elias_y_Susi" state="E">
+			<lastname>Domingues</lastname>
+			<name>Elias y Susi</name>
+			<quantity>2</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Entelesky_Karina" state="E">
+			<lastname>Entelesky</lastname>
+			<name>Karina</name>
+			<quantity>1</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Vegetariano</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Entelesky_Diego_y_Noelia" state="E">
+			<lastname>Entelesky</lastname>
+			<name>Diego y Noelia</name>
+			<quantity>2</quantity>
+			<table>8</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Amar_Daniel_y_Alejandra" state="E">
+			<lastname>Amar</lastname>
+			<name>Daniel y Alejandra</name>
+			<quantity>2</quantity>
+			<table>8</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Ferry_Mariano_y_Paula" state="E">
+			<lastname>Ferry</lastname>
+			<name>Mariano y Paula</name>
+			<quantity>2</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Lastinger_Ezequiel_y_Patricia" state="E">
+			<lastname>Lastinger</lastname>
+			<name>Ezequiel y Patricia</name>
+			<quantity>2</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Rodriguez_Carolina" state="E">
+			<lastname>Rodriguez</lastname>
+			<name>Carolina</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments>sin sal</comments>
+		</guest>
+		<guest id="Bordakevich_Romulo" state="E">
+			<lastname>Bordakevich</lastname>
+			<name>Romulo</name>
+			<quantity>1</quantity>
+			<table>2</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Brown_Camila" state="E">
+			<lastname>Brown</lastname>
+			<name>Camila</name>
+			<quantity>1</quantity>
+			<table>5</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Arias_Eugenio_y_Sra" state="E">
+			<lastname>Arias</lastname>
+			<name>Eugenio y Sra</name>
+			<quantity>2</quantity>
+			<table>2</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Azubel_Carlos_y_Romina" state="E">
+			<lastname>Azubel</lastname>
+			<name>Carlos y Romina</name>
+			<quantity>2</quantity>
+			<table>1</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments>llamar para sorpresa amigos despues del primer plato
+			</comments>
+		</guest>
+		<guest id="Hermida_Antonia" state="E">
+			<lastname>Hermida</lastname>
+			<name>Antonia</name>
+			<quantity>1</quantity>
+			<table>4</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Lospenacci_Valeria_y_Fernando" state="E">
+			<lastname>Lospenacci</lastname>
+			<name>Valeria y Fernando</name>
+			<quantity>2</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Mulser_Irma_y_Alejandro" state="E">
+			<lastname>Mulser</lastname>
+			<name>Irma y Alejandro</name>
+			<quantity>2</quantity>
+			<table>8</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Lombi_Nahuel" state="E">
+			<lastname>Lombi</lastname>
+			<name>Nahuel</name>
+			<quantity>1</quantity>
+			<table>9</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Ledesma_Marcos_y_sra" state="E">
+			<lastname>Ledesma</lastname>
+			<name>Marcos y sra</name>
+			<quantity>2</quantity>
+			<table>8</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Castagneti_Amanda_y_Pedro" state="E">
+			<lastname>Castagneti</lastname>
+			<name>Amanda y Pedro</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Rodriguez_Raul_y_Mirta" state="E">
+			<lastname>Rodriguez</lastname>
+			<name>Raul y Mirta</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Merlo_Hernan_y_Sra" state="E">
+			<lastname>Merlo</lastname>
+			<name>Hernan y Sra</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Baremboin_Adolfo_y_Susi" state="E">
+			<lastname>Baremboin</lastname>
+			<name>Adolfo y Susi</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<comments />
+		</guest>
+		<guest id="Pettinato_Roberto" state="E">
+			<lastname>Pettinato</lastname>
+			<name>Roberto</name>
+			<quantity>1</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Romero_Anibal_y_Sra" state="E">
+			<lastname>Romero</lastname>
+			<name>Anibal y Sra</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Wienschelbaum_Aaron" state="E">
+			<lastname>Wienschelbaum</lastname>
+			<name>Aaron</name>
+			<quantity>1</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Cantilo_Sergio,_Adriana" state="E">
+			<lastname>Cantilo</lastname>
+			<name>Sergio, Adriana</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Rosetti_Walter_y_Marga" state="E">
+			<lastname>Rosetti</lastname>
+			<name>Walter y Marga</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Soriano_Osvaldo_y_Sofia" state="E">
+			<lastname>Soriano</lastname>
+			<name>Osvaldo y Sofia</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Savion_Maitena_y_Rodrigo" state="E">
+			<lastname>Savion</lastname>
+			<name>Maitena y Rodrigo</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Cantilo_Ezequiel_y_Maru" state="E">
+			<lastname>Cantilo</lastname>
+			<name>Ezequiel y Maru</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Cantilo_Rafael_y__Ale" state="E">
+			<lastname>Cantilo</lastname>
+			<name>Rafael y Ale</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Mustaccio_Pilar_y_Jose" state="E">
+			<lastname>Mustaccio</lastname>
+			<name>Pilar y Jose</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Castro_Aguirre_Franco" state="E">
+			<lastname>Castro Aguirre</lastname>
+			<name>Franco</name>
+			<quantity>1</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Polo_Alejandro_y_Alejandra" state="E">
+			<lastname>Polo</lastname>
+			<name>Alejandro y Alejandra</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Romeres_Abraham_y_Sra" state="E">
+			<lastname>Romeres</lastname>
+			<name>Abraham y Sra</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Cantilo_Dario_y_Marina" state="E">
+			<lastname>Cantilo</lastname>
+			<name>Dario y Marina</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Menor</cubierto>
+			<menu>Infantil</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+		<guest id="Schuster_Walter y Ariela" state="E">
+			<lastname>Schuster</lastname>
+			<name>Walter y Ariela</name>
+			<quantity>2</quantity>
+			<table>0</table>
+			<cubierto>Adulto</cubierto>
+			<menu>Adulto</menu>
+			<babychair>false</babychair>
+			<confirmed>false</confirmed>
+			<comments />
+		</guest>
+	</guests>
+	<tables>
+		<table id="6" state="E">
+			<description>Primos novio</description>
+			<shape>square</shape>
+			<left>272</left>
+			<top>151</top>
+		</table>
+		<table id="8" state="E">
+			<description>Amigos club</description>
+			<shape>square</shape>
+			<left>279</left>
+			<top>387</top>
+		</table>
+		<table id="12" state="E">
+			<description />
+			<shape>square</shape>
+			<left>562</left>
+			<top>398</top>
+		</table>
+		<table id="11" state="E">
+			<description />
+			<shape>square</shape>
+			<left>419</left>
+			<top>397</top>
+		</table>
+		<table id="1" state="E">
+			<description>Principal</description>
+			<shape>square</shape>
+			<left>331</left>
+			<top />
+		</table>
+		<table id="2" state="E">
+			<description>Padres</description>
+			<shape>square</shape>
+			<left />
+			<top />
+		</table>
+		<table id="3" state="E">
+			<description>Familia novia</description>
+			<shape>square</shape>
+			<left />
+			<top />
+		</table>
+		<table id="4" state="E">
+			<description>Familia novio</description>
+			<shape>square</shape>
+			<left />
+			<top />
+		</table>
+		<table id="5" state="E">
+			<description>Primos novia</description>
+			<shape>square</shape>
+			<left />
+			<top />
+		</table>
+		<table id="7" state="E">
+			<description>Trabajo</description>
+			<shape>square</shape>
+			<left />
+			<top />
+		</table>
+		<table id="9" state="E">
+			<description>Amigos suegro</description>
+			<shape>square</shape>
+			<left />
+			<top />
+		</table>
+		<table id="10" state="E">
+			<description>Amigos papa</description>
+			<shape>square</shape>
+			<left />
+			<top />
+		</table>
+	</tables>
+</event>

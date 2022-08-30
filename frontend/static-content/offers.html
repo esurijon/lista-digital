@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Digital | Ofertas</title>
+<link href="css/estilos.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/ld-static/js/lib/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/jquery.timers-1.2.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/sarissa.js"></script>
+<script type="text/javascript" src="/ld-static/js/jquery.ext.js"></script>
+<script type="text/javascript" src="/ld-static/js/common.js"></script>
+
+<script type="text/javascript" src="/ld-static/js/home.js"></script>
+
+<script type="text/javascript">
+
+var error;
+var slider;
+var resetPassword;
+var login;
+var registerPlanner;
+
+$(document).ready(function() {
+try {
+	if(clientSupport()) {
+		error = new Error($('#error'));
+		slider = new Slider('contents', 'keypad', 20000, 2500);
+		resetPassword = new ResetPassword($('#resetPassword'));
+		login = new Login($('#login'));
+		registerPlanner = new RegisterPlanner($('#registerPlanner'));
+	}
+} catch(e) {
+	alert(e.message);
+}
+
+});
+
+</script>
+
+</head>
+
+<body>
+<div id="page">
+
+	<div id="header">
+ 		<div id="logo"></div>
+
+		<div id="login">
+			<form method="post">
+				<div class="title">
+	      	Iniciar Sesión
+	      </div>
+
+				<select name="PLANNER_ID" class="gray">
+					<option value="none">Organizador</option>
+					<option value="0">Lista Digital</option>
+					<option value="separator">-------------------------------</option>
+				</select>
+				<input type="text" name="USER" value="e-mail" class="gray"/>
+			 	<input type="text" name="PASSWORD_LBL" value="Contraseña" class="gray"/>
+			 	<input type="password" name="PASSWORD" value="" class="hidden"/>
+
+      	<span action="resetPassword" class="forgot-pass">¿Olvidé mi contraseña?</span>
+      	<a action="login" href="#" class="login">INGRESAR</a>
+			</form>
+		</div>
+		
+		<div id="nav-bar">
+			<a href="home.html" class="home">Home</a>
+			<a href="offers.html" class="ofertas">Ofertas y Servicios</a>
+			<a href="mailto:info@listadigital.com.ar" class="contacto">Contáctenos</a>
+			<div class="separador-gris" style="margin-left: 1px;"></div>
+			<div class="separador-gris"></div>
+			<div id="showRegisterForm" class="registro">REGISTRARSE</div>
+		</div>
+
+  </div>
+
+	<div id="body">
+
+   	<h1 class="texto-seccion">Ofertas y servicios</h1>
+		<h2 class="texto-titulo">Elija el plan de su conveniencia</h2>
+	
+		<a name="BASEPACK">
+        <div class="plan">
+	    <div class="header">
+	      <h1>BASE PACK</h1>
+	      <p class="subtitulo-azul">
+	      	Este paquete de abono mensual te brinda el servicio básico que te permite tener una lista de invitados por cada uno de tus eventos.<br/>
+	      	Cuenta con las herramientas necesarias para el armado de las mismas, permitiendo al organizador y los anfitriones de cada evento trabajar en forma simultánea sobre la lista.
+	      	Te garantiza acceso on-line las 24hs para ver, modificar o imprimir la lista de cualquier evento. Además siempre podés contar con un resguardo de las listas para que nunca se pierda tu trabajo.
+	      	<br/>
+	      	<br/>Características:
+	      </p>
+	    </div>
+	    <div class="body">
+	    	<ul>
+	    		<li>Hasta 120 eventos registrados simultáneamente.</li>
+	    		<li>Hasta 150 invitados por evento(*).</li>
+	    		<li>Listado de invitados por orden alfabético.</li>
+	    		<li>Listado de invitados por mesa.</li>
+	    		<li>Plano con la ubicación de las mesas.</li>
+	    		<li>Resumen general.</li>
+	    		<li>Resguardo de las últimas 30 versiones de cada listado en el servidor.</li>
+	    		<li>Exportación: bajar la lista a tu computadora.</li>
+	    	</ul>
+	    	<div class="precio">
+	    		<div style="height: 35px;">$190.-</div>
+	    		<div style="font-size: 10px; height: 20px;">Oferta válida hasta Dic. 2010</div>
+	    	</div>		    	
+		    <div style="clear:both;"/>	    
+			</div>
+			<div style="margin-top: 20px;">
+		    <p style="clear: both">* Se cuenta como invitado a un registro en el 'Listado por nombre', si los invitados se ingresan por pareja el número podrá exceder el límite establecido.</p>
+		    <p style="clear: both">** El precio no incluye impuestos.</p>
+			</div>
+		</div>
+		</a>
+    
+        <a name="ADVANCEDPACK">
+		<div class="plan">
+	    <div class="header">
+	      <h1>ADVANCED PACK</h1>
+	      <p class="subtitulo-azul">
+	      	A todos los beneficios del <i>BASE PACK</i> sumale: más eventos, más invitados por evento; herramientas avanzadas para importación, exportacion y para el resguardo de la información.<br/>
+	      	<br/>Características:
+	      </p>
+	    </div>
+	    <div class="body">
+	    	<ul>
+	    		<li>Hasta <b>200 eventos</b> registrados simultáneamente.</li>
+	    		<li>Hasta <b>200 invitados</b> por evento(*).</li>
+	    		<li>Listado de invitados por orden alfabético.</li>
+	    		<li>Listado de invitados por mesa.</li>
+	    		<li>Plano con la ubicacón de las mesas.</li>
+	    		<li>Resumen general.</li>
+	    		<li>Resguardo de las últimas 30 versiones de cada listado en el servidor.</li>
+	    		<li><b>Resguardo de hasta 20 versiones etiquetadas que no se eliminan nunca.</b></li>
+	    		<li>Exportación: bajar la lista a tu compuatadora.</li>
+	    		<li><b>Exportación avanzada: bajar la lista a una planilla excel.</b></li>
+	    		<li><b>Importarción: subir lista desde planilla excel.</b></li>
+	    	</ul>
+		    <div class="precio" style="line-height: 425px; font-size: 28px;">NO DISPONIBLE.</div>
+		    <div style="clear:both;"/>	    
+			</div>
+			<div style="margin-top: 20px;">
+		    <p style="clear: both">* Se cuenta como invitado a un registro en el 'Listado por nombre', si los invitados se ingresan por pareja el número podrá exceder el límite establecido.</p>
+			</div>
+		</div>
+        </a>
+    
+        <a name="SINGLEEVENTPACK">
+		<div class="plan">
+	    <div class="header">
+	      <h1>SINGLE EVENT PACK</h1>
+	      <p class="subtitulo-azul">
+	      	Si tenes un único evento y queres utilizar Lista Digital. Te ofrecemos este paquete que tiene una modalidad de abono fijo, pero renovable, por un lapso de tres meses.<br/> 
+	      	Este paquete cuenta con las herramientas necesarias para el armado de la lista de invitados. Te garantiza acceso on-line las 24hs para ver, modificar o imprimir tu lista de invitados. Además siempre podés contar con un resguardo de las listas para que nunca se pierda tu trabajo.<br/>
+	      	
+	      	<br/>
+	      	<br/>Características:
+	      </p>
+	    </div>
+	    <div class="body">
+	    	<ul>
+	    		<li>Hasta 150 invitados por evento(*).</li>
+	    		<li>Listado de invitados por orden alfabético.</li>
+	    		<li>Listado de invitados por mesa.</li>
+	    		<li>Plano con la ubicación de las mesas.</li>
+	    		<li>Resumen general.</li>
+	    		<li>Resguardo de las últimas 30 versiones de cada listado en el servidor.</li>
+	    		<li>Exportación: bajar la lista a tu computadora.</li>
+	    	</ul>
+	    	<div class="precio">
+	    		<div style="height: 35px;">$120.-</div>
+	    		<div style="font-size: 10px; height: 20px;">Oferta válida hasta Dic. 2010</div>
+	    	</div>		    	
+		    <div style="clear:both;"/>	    
+			</div>
+			<div style="margin-top: 20px;">
+		    <p style="clear: both">* Se cuenta como invitado a un registro en el 'Listado por nombre', si los invitados se ingresan por pareja el número podrá exceder el límite establecido.</p>
+		    <p style="clear: both">** El precio no incluye impuestos.</p>
+			</div>
+		</div>
+        </a>
+
+	</div>
+	
+</div>
+
+<!-- POPUPS -->
+<div id="error" class="hidden form_message"></div>
+
+<div id="resetPassword" class="hidden">
+	<div id="message" class="form-message"></div>
+	<form name="resetPassword" action="">
+		<label class="form-label">Organizador:</label>
+		<select name="PLANNER_ID" class="form-field">
+			<option value="none">Organizador</option>
+			<option value="0">Lista Digital</option>
+			<option value="separator">-------------------------------</option>
+		</select>
+		<label class="form-label">E-mail:</label>
+		<input name="USER" type="text" class="form-field"/>
+	</form>
+</div>
+
+<div id="registerPlanner" class="hidden">
+	<div id="message" class="form-message"></div>
+	<form name="planner">
+		<label class="form-label">Empresa:</label><input name="name" type="text" class="form-field reg-field"/>
+		<label class="form-label">Dirección:</label><input name="address" type="text" class="form-field reg-field"/>
+		<label class="form-label">Teléfono:</label><input name="phone" type="text" class="form-field reg-field"/>
+		<label class="form-label">E-mail:</label><input name="user" type="text" class="form-field reg-field"/>
+		<label class="form-label">Persona de contacto:</label><input name="contactPerson" type="text" class="form-field reg-field"/>
+	</form>
+</div>
+
+</body>
+</html>

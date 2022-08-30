@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<options>
+	<menus>
+		<menu id="Adulto">Normal</menu>
+		<menu id="Vegetariano">Vegetariano</menu>
+		<menu id="Celíaco">Celíaco</menu>
+		<menu id="Infantil">Infantil</menu>
+	</menus>
+	
+	<cubiertos>
+		<cubierto id="Adulto">Adulto</cubierto>
+		<cubierto id="Menor">Menor (6 a 10 años)</cubierto>
+		<cubierto id="Infantil">Infantil(Hasta 5 años)</cubierto>
+		<cubierto id="Mesa dulce">Mesa dulce</cubierto>
+	</cubiertos>
+	<table-shape>
+    <shape id="round">Redonda</shape>
+		<shape id="square">Cuadrada</shape>
+	</table-shape>
+</options>

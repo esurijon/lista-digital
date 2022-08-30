@@ -1,0 +1,64 @@
+#logout, 
+#tabs, 
+#throbber, 
+#new, 
+#guestForm, 
+#header, 
+#tableForm, 
+#saveChanges,
+div.reporter, 
+button {
+	display: none;
+}
+
+.noprint {
+	display: none; 
+}
+
+td {
+	padding: 0px;	
+}
+
+table#plain-view td.head0 {
+	display: block;
+	width: 250px;
+	line-height: 3;
+}
+
+table#plain-view td.col0{
+	text-align: left;
+	width: 250px;
+	display: block;
+} 
+
+table#plain-view td.head8 {
+	width: 700px;
+}
+
+table#plain-view td.col8 
+{
+	width: 700px;
+	text-align: left;
+}
+
+div#event-data {
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+table#plain-view td.head1, 
+table#plain-view td.head2, 
+table#plain-view td.head3, 
+table#plain-view td.head5, 
+table#plain-view td.head6, 
+table#plain-view td.head7, 
+table#plain-view td.head9, 
+table#plain-view td.col1, 
+table#plain-view td.col2, 
+table#plain-view td.col3, 
+table#plain-view td.col5, 
+table#plain-view td.col6, 
+table#plain-view td.col7, 
+table#plain-view td.col9 {
+	display: none; 
+}

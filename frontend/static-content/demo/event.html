@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Lista Digital | Evento</title>
+
+	<link href="/ld-static/css/print.css" rel="stylesheet" type="text/css"  media="print"/>
+	<link href="/ld-static/css/estilos.css" rel="stylesheet" type="text/css"/>
+	<link href="/ld-static/css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" media="screen"/>
+	
+	<script type="text/javascript" src="/ld-static/js/lib/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="/ld-static/js/lib/jquery-ui-1.7.2.custom.min.js"></script>
+	<script type="text/javascript" src="/ld-static/js/lib/jquery.timers-1.2.js"></script>
+	<script type="text/javascript" src="/ld-static/js/lib/jquery.printf.js"></script>
+	<script type="text/javascript" src="/ld-static/js/lib/sarissa.js"></script>
+	<script type="text/javascript" src="/ld-static/js/jquery.ext.js"></script>
+	<script type="text/javascript" src="/ld-static/js/common.js"></script>
+	<script type="text/javascript" src="/ld-static/event/objects.js"></script>
+	
+	<script>
+	function init() {
+		if(clientSupport()) {
+			$.ajax({
+				url:'/ld/login',
+				data: {PLANNER_ID: '0', USER: 'demo@listadigital.com.ar', PASSWORD: 'demodemo'},
+				success: function() {
+					var userInfo = new UserInfo(
+						$('div#logout'), 
+						function(){
+							var reporter = new Reporter('Event page');
+							var tools = new Tools($('#listing'));
+							eventInfo = new EventInfo($('#event-data'));
+							var controller = new EventController();
+							controller.init();
+						},
+						function(){
+							var login = new Login();
+							login.onLogged(function(role) {
+								location.href = '/ld-static/event/main.html';
+							});
+							login.show();
+						}
+					);
+				},
+				error:  function() {
+					$("<div>").text("Lo sentimos, la demo no esta disponible en este momento.").dialog({title:'Demo no  disponible'});
+				}
+			});
+		}
+	}
+	plannerId="";
+	eventId="";
+	$(document).ready(init);
+	</script>
+</head>
+<body>
+
+<div id="page">
+
+	<div id="header">
+ 		<div id="logo"></div>
+
+		<div id="logout">
+			<form>
+				<div class="welcome"></div>
+				<div class="user"></div>
+				<button class="logout" onclick="location.href='/ld/logout'; return false;">CERRAR SESIÓN</button>
+			</form>
+		</div>
+		
+  </div>
+
+	<div id="body">
+		<!--datos -->
+		<div id="event-data">
+			<img src="/ld-static/img/throbber.gif" alt="Cargando datos..." />
+		</div>
+		<!--Fin datos-->
+
+		<div id="view" class="view">
+		
+			<div id="tabs">
+				<div id="plain" class="txt-tab">Listado por Nombre</div>
+				<div id="grouped" class="txt-tab">Listado por Mesa</div>
+				<div id="summary" class="txt-tab">Resumen</div>
+				<div id="plane" class="txt-tab">Plano</div>
+				<div id="tools" class="txt-btn">Herramientas</div>
+				<div id="print" class="txt-btn">Imprimir</div>
+				<div id="save" class="txt-btn">Subir Cambios</div>
+			</div>
+
+			<div id="listing">
+<table id="plain-view" width="934">
+	<thead>
+		<tr>
+			<td>APELLIDO</td>
+			<td>NOMBRE</td>
+			<td>CANT</td>
+			<td>MESA</td>
+			<td>CUBIERTO</td>
+			<td>MENÚ</td>
+			<td>SILLA BEBÉ</td>
+			<td>COMENTARIOS</td>
+		</tr>
+	</thead>
+	<tbody class="plain">
+		<tr>
+			<td colspan="8" style="background-color: white">
+				<img src="/ld-static/img/throbber.gif" alt="Cargando datos..." />
+			</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr id="new" style="width: 930px;">
+			<td colspan="8" class="new">+Agregar un invitado</td>
+		</tr>
+	</tfoot>
+</table>
+</div>
+
+			<div id="throbber" class="hidden">Procesando requerimiento...</div>
+
+		</div>
+
+	</div>
+</div>
+
+<!-- POPUPS -->
+<div id="tableForm" class="hidden">
+	<input name="id" type="hidden" />
+	<p id="tid">Mesa #0</p>
+	<p>Descripción: <input name="description" type="text" /></p>
+</div>
+
+</body>
+</html>

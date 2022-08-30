@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Lista Digital | Organizador</title>
+
+	<link href="/ld-static/css/estilos.css" rel="stylesheet" type="text/css" />
+	<link href="/ld-static/css/print2.css" rel="stylesheet" type="text/css"  media="print"/>
+  <link href="/ld-static/css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript" src="/ld-static/js/lib/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="/ld-static/js/lib/jquery-ui-1.7.2.custom.min.js"></script>
+	<script type="text/javascript" src="/ld-static/js/lib/jquery.timers-1.2.js"></script>
+	<script type="text/javascript" src="/ld-static/js/lib/sarissa.js"></script>
+	<script type="text/javascript" src="/ld-static/js/jquery.ext.js"></script>
+	<script type="text/javascript" src="/ld-static/js/common.js"></script>
+
+	<script type="text/javascript" src="./objects.js"></script>
+	
+	<script>
+	plannerEmail = null;
+	function init() {
+		if(clientSupport()) {
+			var action = location.search.substring(1);
+			var popUps = {
+				SUCCESFULL: $('<div>').text('Su pago se efectuado exitosamente. Verifique en la solapa de \'Pagos\' su próximo vencimiento.').dialog({title:'Pago exitoso', modal: true, autoOpen: false}),
+				PROCESS: $('<div>').text('Su pago esta en progreso. Verifique en la solapa de \'Pagos\' el estado de su pago.').dialog({title:'Pago en progreso', modal: true, autoOpen: false}),
+				CANCEL: $('<div>').text('Su operación de pago se ha cancelado. Vuelva a intentarlo nuevamente desde la solapa de \'Pagos\'.').dialog({title:'Pago cancelado', modal: true, autoOpen: false})
+			};
+			if(popUps[action]) popUps[action].dialog('open');
+
+			var userInfo = new UserInfo(
+				$('div#logout'), 
+				function(){
+					var reporter = new Reporter('Planner page');
+					var plannerInfo = new PlannerInfo($('#planner-data'));
+					var tabs = new Tabs();
+
+					$('#print').click(function() {window.print();});
+					var payments = new Payments($('#listing'));
+					$(payments).bind('ready', function(){tabs.register('payments', payments);});
+
+					$.ajax( {
+						url : '/ld/load/planner' + location.search,
+						data : '',
+						dataType: 'xml',
+						success : function(data, status, xhr) {
+							var events = new Events($('#listing'), $('events', data));
+							var halls = new Halls($('#listing'), $('halls', data));
+							var saver = new Saver(data);
+							
+							$(events).bind('ready', function(){tabs.register('events', events); tabs.show('events');});
+							$(halls).bind('ready', function(){tabs.register('halls', halls);});
+							$(halls).bind('ready', events.setHalls);
+							$(halls).bind('changed', saver.setUnsaved);
+							$(halls).bind('changed', events.updateHall);
+							$(events).bind('changed', saver.setUnsaved);
+
+							$(saver).bind('saved', function(ev, data){
+								events.setXml(data);
+								halls.setXml(data);
+								tabs.show();
+							});
+						},
+						error : function(xhr, status, error) {
+							if(xhr.status == 500) {
+								var msg = xhr.responseText;
+								if(msg.match('Permissions denied:.*READ_ENABLED')) {
+									$("<div>").text("Se han revocado los permisos para abrir la lista de eventos. Por favor contactenos para regularizar su situación.").dialog({title:'Permisos revocados'});
+								} else {
+									$("<div>").text("Ha ocurrido un error. Por favor inténtelo nuevamente en unos minutos.").dialog({title:'Mensaje de error'});
+								} 							} else {
+								$("<div>").text("Ha ocurrido un error. Por favor inténtelo nuevamente en unos minutos.").dialog({title:'Mensaje de error'});
+							}
+						}
+					});
+				},
+				function(){
+					var login = new Login();
+					login.onLogged(function(role) {
+						location.href = '/ld-static/planner/main.html';
+					});
+					login.show();
+				}
+			);
+		}
+	}
+	$(document).ready(init);
+	</script>
+</head>
+<body>
+
+<div id="page">
+
+	<div id="header">
+ 		<div id="logo"></div>
+
+		<div id="logout">
+			<form>
+				<div class="welcome"></div>
+				<div class="user"></div>
+				<button class="logout" onclick="location.href='/ld/logout'; return false;">CERRAR SESIÓN</button>
+			</form>
+		</div>
+		
+  </div>
+
+	<div id="body">
+		<!--datos -->
+		<div id="planner-data">
+			<img src="/ld-static/img/throbber.gif" alt="Cargando datos..." />
+		</div>
+		<!--Fin datos-->
+
+		<div id="view" class="view">
+		
+			<div id="tabs">
+				<div id="events" class="txt-tab">Eventos</div>
+				<div id="halls" class="txt-tab">Salones</div>
+				<div id="payments" class="txt-tab">Pagos</div>
+				<div id="null" class="txt-tab">&nbsp;</div>
+				<div id="tools" class="txt-btn">Herramientas</div>
+				<div id="print" class="txt-btn">Imprimir</div>
+				<div id="save" class="txt-btn">Subir Cambios</div>
+			</div>
+
+			<div id="listing">
+				<table id="plain-view" width="934">
+					<thead>
+						<tr>
+							<td>EVENTO</td>
+							<td>FECHA</td>
+							<td>ANFITRIONES</td>
+							<td>SALÓN</td>
+							<td>VER</td>
+						</tr>
+					</thead>
+					<tbody class="plain">
+						<tr>
+							<td colspan="5" style="background-color: white">
+								<img src="/ld-static/img/throbber.gif" alt="Cargando datos..." />
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr id="new" style="width: 930px;">
+							<td colspan="5" class="new">+Agregar un evento</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+
+			<div id="throbber" class="hidden">Procesando requerimiento...</div>
+
+		</div>
+
+	</div>
+</div>
+
+<!-- POPUPS -->
+<form id="eventForm" class="hidden">
+	<div id="message" class="form-message"></div>
+	<label class="form-label" style="display: inline;">Evento: </label>
+	<select name="type" class="form-field" style="display: inline; width: 135px;">
+		<option value="Boda">Boda</option>
+	</select>
+	<label class="form-label" style="display: inline;">Fecha: </label><input id="calendar" name="date" type="text" class="form-field" style="display: inline; width: 120px;"/>
+	<label class="form-label" style="display: inline;">Salón: </label><select name="hall" class="form-field" style="display: inline; width: 135px;"></select>
+	<div>
+		<div class="host"><p><b>Novia</b></p>
+				<label class="form-label">Nombre: </label><input name="bride.name" type="text" class="form-field pln-field"/>
+				<label class="form-label">Apellido: </label><input name="bride.lastname" type="text" class="form-field pln-field"/>
+				<label class="form-label">E-mail: </label><input name="bride.user" type="text" class="form-field pln-field"/>
+				<label class="form-label">Teléfono: </label><input name="bride.phone" type="text" class="form-field pln-field"/>
+				<label class="form-label">Celular: </label><input name="bride.cellphone" type="text" class="form-field pln-field"/>
+		</div>
+		<div class="host"><p><b>Novio</b></p>
+				<label class="form-label">Nombre: </label><input name="groom.name" type="text" class="form-field pln-field"/>
+				<label class="form-label">Apellido: </label><input name="groom.lastname" type="text" class="form-field pln-field"/>
+				<label class="form-label">E-mail: </label><input name="groom.user" type="text" class="form-field pln-field"/>
+				<label class="form-label">Teléfono: </label><input name="groom.phone" type="text" class="form-field pln-field"/>
+				<label class="form-label">Celular: </label><input name="groom.cellphone" type="text" class="form-field pln-field"/>
+		</div>
+	</div>
+	<div class="form-message" style="clear: both;">
+		<input name="block" type="checkbox"/>Bloquear modificaciones.
+	</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Digital | Inicio</title>
+<link href="css/estilos.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/ld-static/js/lib/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/jquery.timers-1.2.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/sarissa.js"></script>
+<script type="text/javascript" src="/ld-static/js/jquery.ext.js"></script>
+<script type="text/javascript" src="/ld-static/js/common.js"></script>
+
+<script type="text/javascript" src="/ld-static/js/home.js"></script>
+
+<script type="text/javascript">
+
+var error;
+var slider;
+var resetPassword;
+var login;
+var changePassword;
+var activateAccount;
+var registerPlanner;
+
+$(document).ready(function() {
+try {
+	if(clientSupport()) {
+		error = new Error($('#error'));
+		slider = new Slider('contents', 'keypad', 20000, 2500);
+		resetPassword = new ResetPassword($('#resetPassword'));
+		login = new Login($('#login'));
+		changePassword = new ChangePassword($('#changePassword'));
+		activateAccount = new ActivateAccount($('#activateAccount'));
+		registerPlanner = new RegisterPlanner($('#registerPlanner'));
+
+		slider.play(true);
+
+		var trackMessage = function(msg){
+			$.ajax({
+				url: '/ld/track',
+				data: msg
+			});
+		};
+
+		var paramActions = {
+			REGISTER : registerPlanner.show,
+			CHANGE_PASSWORD : changePassword.show,
+			ACTIVATE_ACCOUNT : activateAccount.show,
+			TRACK : trackMessage
+		};
+		
+		var hasAction = false;
+		var params = unescape(document.location.search.substring(1).decode64()).split('&');
+		for(var i in params) {
+			var action = params[i].split('=')[0];
+			var args = params[i].split('=')[1];
+			if(paramActions[action]) {
+				paramActions[action](args);
+				hasAction = true;
+			}
+		}
+
+		if(!hasAction) {
+			trackMessage("VISITA ANONIMA A HOME".encode64());
+		}
+	}
+} catch(e) {
+	alert(e.message);
+}
+
+});
+
+</script>
+
+</head>
+
+<body>
+<div id="page">
+
+	<div id="header">
+ 		<div id="logo"></div>
+
+		<div id="login">
+			<form method="post">
+				<div class="title">
+	      	Iniciar Sesión
+	      </div>
+				<select name="PLANNER_ID" class="gray">
+					<option value="none">Organizador</option>
+					<option value="0">Lista Digital</option>
+					<option value="separator">-------------------------------</option>
+				</select>
+				<input type="text" name="USER" value="e-mail" class="gray"/>
+			 	<input type="text" name="PASSWORD_LBL" value="Contraseña" class="gray"/>
+			 	<input type="password" name="PASSWORD" value="" class="hidden"/>
+
+      	<span action="resetPassword" class="forgot-pass">¿Olvidé mi contraseña?</span>
+      	<a action="login" href="#" class="login">INGRESAR</a>
+			</form>
+		</div>
+		
+		<div id="nav-bar">
+			<a href="home.html" class="home">Home</a>
+			<a href="offers.html" class="ofertas">Ofertas y Servicios</a>
+			<a href="mailto:info@listadigital.com.ar" class="contacto">Contáctenos</a>
+			<div class="separador-gris" style="margin-left: 1px;"></div>
+			<div class="separador-gris"></div>
+			<div id="showRegisterForm" class="registro">REGISTRARSE</div>
+		</div>
+
+  </div>
+
+	<div id="body">
+
+		<div id="top-banner">
+			<div>
+  				<a href="#" onclick="slider.show(3);">Cómo<br/>Lista<br/>Digital</a>
+			</div>
+			<div>
+ 				<a href="#" onclick="slider.show(2);">Para<br/>qué<br/>Lista<br/>Digital</a>
+			</div>
+			<div>
+ 				<a href="#" onclick="slider.show(0);">Qué es <br/>Lista <br/>Digital</a>
+			</div>
+		</div>
+	
+		<div id="right-banner">
+	    <div id="main">
+				<div id="keypad" class="keypad">
+					<button id="play"></button>
+					<button id="next"></button>
+				</div>
+				<div id="contents">
+					<div class="content" id="whatis">
+						<h1>¿Qué es Lista Digital?</h1>
+						<h2>Un servicio para armar listas de invitados:</h2>
+						<p style="font-family: verdana,arial,calibri,sans-serif; color: #333333; font-size: 14px">
+								Lista Digital es un servicio pensado para Salones de Fiestas y Organizadores de Eventos, con el cual tus clientes podrán armar y compartir de forma rápida y sencilla la lista de invitados de su evento.<br/>
+								Lista Digital no sólo representa un beneficio directo para tus clientes, sino que a la vez te evitás cualquier complicación que pueda surgir, ya que disponés de los listados con el detalle y formato que necesitas.<br/>
+								Lista Digital es un servicio on-line, disponible las 24hs. Esto quiere decir que podrás ver, modificar e imprimir los listados de cualquier evento en cualquier momento del día.
+						</p>
+					</div>
+					<div class="content hidden" id="why">
+						<h1>¿Por qué Lista Digital?</h1>
+						<h2>Porque armar una lista de invitados es una tarea más complicada de lo que parece:</h2>
+						<p style="font-family: verdana,arial,calibri,sans-serif; color: #333333; font-size: 14px">
+							Si bien parece sencillo, armar una lista de invitados es una tarea que se complica a medida que aumenta el número de invitados.<br/>
+							Hay que cargar cada uno de los invitados sin repetirlos ni olvidarse de ninguno, distribuirlos en las mesas y volver a hacerlo una y otra vez hasta que quede perfecto, armar la disposición de las mesas en el salón. Y cuando todo está listo, justo en los días previos a la celebración volver a corregir los listados con los cambios de último momento.<br/>
+							Todo esto puede resultar en que los listados no queden bien armados e incluso ocasionar discusiones.
+						</p>
+					</div>
+					<div class="content hidden" id="whatfor">
+						<h1>¿Para qué Lista Digital?</h1>
+						<h2>Para evitar todos los problemas que surgen al armar una lista de invitados:</h2>
+						<p style="font-family: verdana,arial,calibri,sans-serif; color: #333333; font-size: 14px">
+								Para evitar los inconvenientes y malos entendidos que frecuentemente ocurren, Lista Digital te brinda todas las herramientas y facilidades que necesitarás a la hora de armar la lista de invitados de tus eventos.<br/>
+								Te brindamos los cuatro listados imprescindibles: listado de los invitados en orden alfabético, listado de las mesas con cantidad de comensales y menús especiales por mesa, plano del salón con distribución de las mesas y un resumen general con cantidad de invitados, de mesas, de menús especiales y observaciones pertinentes.<br/>
+								Todo esto podrás verlo, modificarlo o imprimirlo, en cualquier momento desde cualquier lugar.
+						</p>
+					</div>
+					<div class="content hidden" id="how">
+						<h1>¿Cómo Lista Digital?</h1>
+						<h2>Lista Digital es muy sencillo:</h2>
+						<p style="font-family: verdana,arial,calibri,sans-serif; color: #333333; font-size: 14px">
+							Sólo tenés que registrarte, inmediatamente después recibirás un e-mail para crear una contraseña y activar tu cuenta.<br/>
+							Una vez que actives tu cuenta, ingresás al sitio indicando el nombre del Salón/Organizador, tu e-mail y contraseña y ya podés comenzar a cargar eventos.<br/>
+							Cada vez que cargues un evento se creará una nueva cuenta en nuestro sitio para cada uno de los anfitriones, que les permitirá tener acceso a la lista de su evento para comenzar a cargar los invitados.<br/> 
+							Las páginas de nuestro sitio son muy fáciles de utilizar, si tenés alguna duda podés consultar nuestra <a href="help.html">mesa de ayuda</a> o contactarnos vía e-mail a <a href="mailto:info@listadigital.com.ar">info@listadigital.com.ar</a>
+						</p>
+					</div>
+					<div class="content hidden" id="where">
+						<h1>¿Dónde y cuándo Lista Digital?</h1>
+						<h2>Desde cualquier lugar y a cualquier hora:</h2>
+						<p style="font-family: verdana,arial,calibri,sans-serif; color: #333333; font-size: 14px">
+							Lista digital es un servicio on-line, disponible las 24hs. Podes utilizarlo desde cualquier computadora, en el trabajo, en la comodidad de tu hogar o en la casa de un amigo.<br/> 
+							No es necesario que instales ningún programa en tu maquina, solo necesitas un navegador con conexión a internet.<br/>
+							Además con Lista Digital tus cambios están compartidos en todo momento, es decir que dos o más personas pueden trabajar en forma simultánea sobre una misma lista desde distintas maquinas.
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<div id="bottom">
+				<div class="grey-banner">
+					<h1 style="color: #2DFF00">Mi salón no tiene Lista Digital</h1>
+					<p>Si queres utilizar Lista Digital pero tu organizador no te brinda nuestros servi- cios, ahora podes registrar tu evento.</p>
+					<div class="details">
+						<a href="event/registerEvent.html" class="details">Registrar mi evento</a>
+	    		</div>
+				</div>
+	    
+				<div class="grey-banner">
+					<h1>Ver una demo</h1>
+					<p>Descubrí todo lo que Lista Digital puede hacer por vos.</p>
+					<div class="details">
+						<a href="demo/event.html" class="details">ver demo</a>
+	    		</div>
+				</div>
+	
+			</div>
+		</div>
+		
+		<div id="left-banner">
+			<div class="image">.</div>
+			<h1>Registrate ahora y obtené un mes de prueba!</h1>
+			<p>
+				Creá tu cuenta ahora y te damos un mes de prueba a costo cero.<br/>
+				Al finalizar el periodo tendrás la opción de contratar alguno de nuestros planes, caso contrario tu cuenta será desactivada automáticamente sin generar gastos.
+			</p>
+			<div>
+				<a id="linkRegisterForm" class="details">registrarme</a>
+      </div>
+		</div>
+
+	</div>
+	
+</div>
+
+<!-- POPUPS -->
+<div id="error" class="hidden form_message"></div>
+
+<div id="resetPassword" class="hidden">
+	<div id="message" class="form-message"></div>
+	<form name="resetPassword" action="">
+		<label class="form-label">Organizador:</label>
+		<select name="PLANNER_ID" class="form-field">
+			<option value="none">Organizador</option>
+			<option value="0">Lista Digital</option>
+			<option value="separator">-------------------------------</option>
+		</select>
+		<label class="form-label">E-mail:</label>
+		<input name="USER" type="text" class="form-field"/>
+	</form>
+</div>
+
+<div id="changePassword" class="hidden">
+	<div id="message"  class="form-message">Por favor, ingresá tu nueva contraseña:</div>
+	<form>
+		<div style="margin-bottom: 8px;">
+			<div class="form-label">Organizador: <b id="planner"></b></div>
+			<div class="form-label">E-mail: <b id="user"></b></div>
+		</div>
+		<input type="hidden" name="ENCODED"/>
+		<label class="form-label">Nueva contraseña:</label><input name="NEW_PASSWORD" type="password" class="form-field"/>
+		<label class="form-label">Repita contraseña:</label><input name="PASSWORD_CONFIRM" type="password" class="form-field"/>
+	</form>
+</div>
+
+<div id="activateAccount" class="hidden">
+	<div id="message"  class="form-message">Por favor, ingresa tu nueva contraseña:</div>
+	<form>
+		<div style="margin-bottom: 8px;">
+			<div class="form-label">Organizador: <b id="planner"></b></div>
+			<div class="form-label">E-mail: <b id="user"></b></div>
+		</div>
+		<input type="hidden" name="ENCODED"/>
+		<label class="form-label">Nueva contraseña:</label><input name="NEW_PASSWORD" type="password" class="form-field"/>
+		<label class="form-label">Repita contraseña:</label><input name="PASSWORD_CONFIRM" type="password" class="form-field"/>
+	</form>
+</div>
+
+<div id="registerPlanner" class="hidden">
+	<div id="message" class="form-message"></div>
+	<form name="planner">
+		<label class="form-label">Empresa:</label><input name="name" type="text" class="form-field reg-field"/>
+		<label class="form-label">Dirección:</label><input name="address" type="text" class="form-field reg-field"/>
+		<label class="form-label">Teléfono:</label><input name="phone" type="text" class="form-field reg-field"/>
+		<label class="form-label">E-mail:</label><input name="user" type="text" class="form-field reg-field"/>
+		<label class="form-label">Persona de contacto:</label><input name="contactPerson" type="text" class="form-field reg-field"/>
+	</form>
+</div>
+
+</body>
+</html>

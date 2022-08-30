@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Digital | Nuevo Evento</title>
+<link href="/ld-static/css/estilos.css" rel="stylesheet" type="text/css" />
+<link href="/ld-static/css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/ld-static/js/lib/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/jquery.timers-1.2.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/sarissa.js"></script>
+<script type="text/javascript" src="/ld-static/js/jquery.ext.js"></script>
+<script type="text/javascript" src="/ld-static/js/common.js"></script>
+
+<script type="text/javascript" src="/ld-static/js/home.js"></script>
+
+<script type="text/javascript">
+
+var login;
+var resetPassword;
+var slider;
+
+function RegisterEvent() {
+	var serializer = new XMLSerializer();
+
+	var validateBrideEmail = function(field) {
+		if(!field.val().match('\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*')) {
+			return 'La dirección de e-mail de la novia no parece ser válida.';
+		}
+		var groomEmail = $('input[name=groom.user]', form).val();
+		if(field.val() == groomEmail) {
+			return 'La dirección de e-mail de la novia no puede ser la misma que la del novio.';
+		}
+		if(field.val() == 'info@listadigital.com.ar') {
+			return 'La dirección de e-mail de la novia no puede ser la misma que la del organizador.';
+		}
+	};
+	
+	var validateGroomEmail = function(field) {
+		if(!field.val().match('\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*')) {
+			return 'La dirección de e-mail del novio no parece ser válida.';
+		}
+		var brideEmail = $('input[name=bride.user]', form).val();
+		if(field.val() == brideEmail) {
+			return 'La dirección de e-mail del novio no puede ser la misma que la de la novia.';
+		}
+		if(field.val() == 'info@listadigital.com.ar') {
+			return 'La dirección de e-mail del novio no puede ser la misma que la del organizador.';
+		}
+	};
+
+	var validateEvent = function() {
+		$(':text', form).each(function() {
+			$(this).val($(this).val().trim());
+		});
+
+		var rules = {
+			date: {match:'^\\d\\d-\\d\\d-\\d\\d\\d\\d$', msg: 'Por favor ingrese una fecha para el evento.'},
+			'bride.name': {match:'.+', msg: 'Por favor ingrese el nombre de la novia.'},
+			'bride.lastname': {match:'.+', msg: 'Por favor ingrese el apellido de la novia.'},
+			'bride.user': {match: validateBrideEmail, msg: 'La dirección de e-mail de la novia no parece ser válida.'},
+			'groom.name': {match:'.+', msg: 'Por favor ingrese el nombre del novio.'},
+			'groom.lastname': {match:'.+', msg: 'Por favor ingrese el apellido del novio.'},
+			'groom.user': {match: validateGroomEmail, msg: 'La dirección de e-mail del novio no parece ser válida.'}
+		};
+		var invalidMsg = $.validate(form, rules);
+		if(!invalidMsg) {
+			return true;
+		} else {
+			$('#message',form).text(invalidMsg);
+			return false;
+		}
+	};
+
+	var add = function() {
+		if(validateEvent()) {
+			var event = $.form2json(form);
+			event['@id'] = new Date().getTime();
+			event['@state'] = 'N';
+			event.bride['@type'] = 'bride';
+			event.groom['@type'] = 'groom';
+			event.hosts = [event.bride,event.groom];
+			delete event.bride;
+			delete event.groom;
+			var dom = (new DOMParser()).parseFromString('<event/>', "text/xml");
+            $('#message',form).text('');
+			$('#throbber').show();
+			$.ajax({
+				type: 'POST',
+				dataType: 'xml',
+				data: serializer.serializeToString($.json2dom(event,'event', dom, {hosts: 'host'})), 
+				url: '/ld/registerEvent', 
+				success : function(data) {
+				    $('#throbber').hide(500);
+				    if($('message', data).text() == 'EVENT_REGISTERED') {
+                        form.hide(500);
+						$("<div class='form-message'><p>Verifica tu casilla de correo, en minutos recibirás un email para activar tu cuenta de usuario.</p></div>").dialog({
+							title: 'Registración exitosa',
+							buttons : {
+								Aceptar: function() {
+									$(this).dialog('close');
+								}
+							}
+						});
+					} else {
+						$("<div>").text("Ha ocurrido un error al registrar tu evento. Por favor intentalo nuevamente en unos minutos.").dialog({title:'Registrar nuevo evento'});
+					}
+				},
+				error : function() {
+                    $('#throbber').hide(500);
+					$("<div>").text("Ha ocurrido un error al registrar tu evento. Por favor intentalo nuevamente en unos minutos.").dialog({title:'Registrar nuevo evento'});
+				}
+			});
+		}
+		return false;
+	};
+	
+	var form = $('#eventForm');
+	
+	$("#calendar", form).datepicker({
+		dateFormat: 'dd-mm-yy',
+		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		dayNamesMin: ['Do', 'Lu', 'Ma', 'Mie', 'Jue', 'Vie', 'Sab']
+	});
+
+	$("button[name=register]", form).click(add);
+
+}
+
+$(document).ready(function() {
+try {
+	if(clientSupport()) {
+		error = new Error($('#error'));
+		slider = new Slider('contents', 'keypad', 20000, 2500);
+		resetPassword = new ResetPassword($('#resetPassword'));
+		login = new Login($('#login'));
+		var re = new RegisterEvent();
+	}
+} catch(e) {
+	alert(e.message);
+}
+
+});
+
+</script>
+
+</head>
+
+<body>
+<div id="page">
+
+	<div id="header">
+ 		<div id="logo"></div>
+
+		<div id="login">
+			<form method="post">
+				<div class="title">
+	      	Iniciar Sesión
+	      </div>
+
+				<select name="PLANNER_ID" class="gray">
+					<option value="none">Organizador</option>
+					<option value="0">Lista Digital</option>
+					<option value="separator">-------------------------------</option>
+				</select>
+				<input type="text" name="USER" value="e-mail" class="gray"/>
+			 	<input type="text" name="PASSWORD_LBL" value="Contraseña" class="gray"/>
+			 	<input type="password" name="PASSWORD" value="" class="hidden"/>
+
+      	<span action="resetPassword" class="forgot-pass">¿Olvidé mi contraseña?</span>
+      	<a action="login" href="#" class="login">INGRESAR</a>
+			</form>
+		</div>
+		
+		<div id="nav-bar">
+			<a href="../home.html" class="home">Home</a>
+			<a href="../offers.html" class="ofertas">Ofertas y Servicios</a>
+			<a href="mailto:info@listadigital.com.ar" class="contacto">Contáctenos</a>
+			<div class="separador-gris" style="margin-left: 1px;"></div>
+			<div class="separador-gris"></div>
+			<div class="separador-gris" style="width: 162px;"></div>
+		</div>
+
+  </div>
+
+	<div id="body">
+    <div id="throbber" class="hidden">Procesando requerimiento...</div>
+    <h1 class="texto-seccion">Nuevo evento</h1>
+    <h2 class="texto-titulo">Registrar evento personal o único</h2>
+  
+    <div class="plan">
+      <div class="header">
+        <h1>SINGLE EVENT PACK</h1>
+        <p class="evt">Si estas organizando tu propio evento y tu salón u organizador aún no brinda nuestros servicios, ahora también podes utilizar Lista Digital!</p>
+        <p class="evt">Completa tus datos en el siguiente formulario y se creara una cuenta que te permitirá cargar la lista de invitados para un único evento por un período de tres meses (<a href="/ld-static/offers.html#SINGLEEVENTPACK">detalles</a>).</p>
+        <p class="evt">Además te otorgamos una semana bonificada para que puedas probar nuestros servicios. Si al finalizar el período de prueba decidís no continuar utilizando el servicio, no tenés que hacer nada; tu cuenta se desactivará automaticámente, sin generar cargos a tu cuenta.</p>
+        <p class="evt">Si tres meses no son suficientes para vos, no te hagas problema. Cada vez que tu permisos expiren podrás abonar un nuevo período.</p>      </div>
+      <div class="body">
+        <form id="eventForm">
+          <div id="message" class="form-message"></div>
+          <label class="form-label" style="display: inline;">Evento: </label>
+          <select name="type" class="form-field" style="display: inline; width: 135px;">
+            <option value="Boda">Boda</option>
+          </select>
+          <label class="form-label" style="display: inline;">Fecha: </label><input id="calendar" name="date" type="text" class="form-field" style="display: inline; width: 120px;"/>
+          <div>
+            <div class="host"><p><b>Novia</b></p>
+                <label class="form-label">Nombre: </label><input name="bride.name" type="text" class="form-field pln-field"/>
+                <label class="form-label">Apellido: </label><input name="bride.lastname" type="text" class="form-field pln-field"/>
+                <label class="form-label">E-mail: </label><input name="bride.user" type="text" class="form-field pln-field"/>
+                <label class="form-label">Teléfono: </label><input name="bride.phone" type="text" class="form-field pln-field"/>
+                <label class="form-label">Celular: </label><input name="bride.cellphone" type="text" class="form-field pln-field"/>
+            </div>
+            <div class="host"><p><b>Novio</b></p>
+                <label class="form-label">Nombre: </label><input name="groom.name" type="text" class="form-field pln-field"/>
+                <label class="form-label">Apellido: </label><input name="groom.lastname" type="text" class="form-field pln-field"/>
+                <label class="form-label">E-mail: </label><input name="groom.user" type="text" class="form-field pln-field"/>
+                <label class="form-label">Teléfono: </label><input name="groom.phone" type="text" class="form-field pln-field"/>
+                <label class="form-label">Celular: </label><input name="groom.cellphone" type="text" class="form-field pln-field"/>
+            </div>
+          </div>
+          <div class="form-message" style="clear: both;">
+            <button name="register">Registrar evento</button>
+          </div>
+        </form>
+      </div>
+    </div>
+	</div>
+	
+</div>
+
+<!-- POPUPS -->
+<div id="error" class="hidden form_message"></div>
+
+<div id="resetPassword" class="hidden">
+	<div id="message" class="form-message"></div>
+	<form name="resetPassword" action="">
+		<label class="form-label">Organizador:</label>
+		<select name="PLANNER_ID" class="form-field">
+			<option value="none">Organizador</option>
+			<option value="0">Lista Digital</option>
+			<option value="separator">-------------------------------</option>
+		</select>
+		<label class="form-label">E-mail:</label>
+		<input name="USER" type="text" class="form-field"/>
+	</form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<body>
+	<form action="/ld/mailer" method="POST" enctype="multipart/form-data">
+		<div>
+			XSL: <input name="xsl" type="file" />
+		</div>
+		<div>
+			MAIL DATA: <input name="xml" type="file" /><br/>
+			<textarea cols="80" rows="40" readonly="readonly">
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<mails>
+  <mail>
+    <recipients>
+      <to>email address could be more than one tag</to>
+      <cc>email address could be more than one tag</cc>
+      <bcc>email address could be more than one tag</bcc>
+    </recipients>
+    <subject>email subject</subject>
+    <data> xml data to process with xsl template</data>
+  </mail>
+  <mail>
+    <recipients>
+      <to>email address could be more than one tag</to>
+      <cc>email address could be more than one tag</cc>
+      <bcc>email address could be more than one tag</bcc>
+    </recipients>
+    <subject>email subject</subject>
+    <data> xml data to process with xsl template</data>
+  </mail>
+</mails>
+
+	</textarea>
+		</div>
+		<div>
+			<input name="data" type="submit" value="Enviar mails"/>
+		</div>
+	</form>
+</body>
+</html>

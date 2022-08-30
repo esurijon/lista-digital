@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div>
+  <button id="replace" class="tool">Reemplazar lista actual por una versión previa</button>
+  <button id="csv" class="tool">Bajar archivo a PC</button>
+</div>

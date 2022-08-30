@@ -1,0 +1,23 @@
+#logout, #tabs, #throbber, #new, #guestForm, #header, #tableForm, #saveChanges {
+	display: none;
+}
+div#planner-data {
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+div.reporter, button {
+	display: none;
+}
+
+td.head5, td.col5 {
+	display: none; 
+}
+
+td {
+	padding: 0px;	
+}
+
+.noprint {
+	display: none; 
+}

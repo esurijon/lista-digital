@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mails>
+  <mail>
+    <recipients>
+      <to>surijon@gmail.com</to>
+    </recipients>
+    <subject>Armá tu lista de invitados</subject>
+    <data>
+      <id>ezequiel surijon</id>
+    </data>
+  </mail>
+</mails>

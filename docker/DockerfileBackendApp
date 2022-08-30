@@ -1,0 +1,12 @@
+#build docker image
+FROM maven:3.8.6-openjdk-11-slim as build
+
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+COPY src/ ./src
+RUN mvn -DskipTests package
+
+# Step: package executable app
+FROM tomcat
+COPY --from=build /target/lista-digital.war /usr/local/tomcat/webapps/

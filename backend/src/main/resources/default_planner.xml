@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<planner>
+	<events>
+		<event id="0" state="E">
+			<permissions>
+				<permission type="readEnabled" granted="true" expires="never" />
+				<permission type="writeEnabled" granted="false" expires="never" />
+			</permissions>
+			<type>Boda</type>
+			<date>24-11-2010</date>
+			<hall>0</hall>
+			<hosts>
+				<host type="bride">
+					<password>5863d9e4cbdf522eaa62e0747fceb1c5b249ba13</password>
+					<resetToken>unset</resetToken>
+					<name>Analía</name>
+					<lastname>Mancuso</lastname>
+					<user>demo@listadigital.com.ar</user>
+					<phone />
+					<cellphone />
+				</host>
+				<host type="groom">
+					<password>5863d9e4cbdf522eaa62e0747fceb1c5b249ba13</password>
+					<resetToken>unset</resetToken>
+					<name>Esteban</name>
+					<lastname>Petranova</lastname>
+					<user>demo@listadigital.com.ar</user>
+					<phone />
+					<cellphone />
+				</host>
+			</hosts>
+		</event>
+	</events>
+	<halls>
+		<hall id="0" state="E">
+			<plane>/ld-static/planner-assets/hall.png</plane>
+			<name>Salón Dorado</name>
+		</hall>
+	</halls>
+</planner>

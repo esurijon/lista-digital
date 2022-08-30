@@ -1,0 +1,155 @@
+#loginForm {
+	display: none;
+	position: absolute;
+	left: 300;
+	top: 250;
+	background-color: yellow;
+	border: 4px solid red;
+}
+
+#throbber {
+	display: none;
+	position: absolute;
+	width: 220;
+	height: 20;
+	background-image: url('../images/throbber.gif');
+	left: 300;
+	top: 250;
+	border: 2px solid blue;
+}
+
+#tableForm {
+	background-color: yellow;
+}
+
+div { /*border: 2px solid;*/
+	font-size: small;
+	margin: 10px 10px 10px 10px;
+}
+
+/* Editor Section */
+div.edit {
+	border: 2px solid;
+	margin: 0px;
+}
+
+div[name="edit"]>div[name="header"] {
+	font-weight: bold;
+	font-size: 20pt;
+	text-align: center;
+}
+
+div.edit {
+	float: left;
+}
+
+div.saved {
+	border-color: #008F00;
+	background-color: #BFFFBF;
+}
+
+div.unsaved {
+	border-color: red;
+	background-color: #FFBFBF;
+}
+
+/* View Section */
+div.view {
+	border: 2px solid;
+	border-color: #3333ff;
+	background-color: #99ccff;
+}
+
+div[name="view"]>div[name="header"] {
+	font-weight: bold;
+	font-size: 20pt;
+	text-align: center;
+}
+
+div.square {
+	border: 2px solid;
+	border-color: red;
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	margin: 0px;
+}
+
+th {
+	background-color: CornflowerBlue;
+}
+
+td {
+	padding: 2px;
+	text-align: center;
+	/*
+	border: 3px solid;
+	border-color: red;
+*/
+}
+
+tr.item:hover {
+	background-color: #0066B3;
+}
+
+tr.item { /*
+	background-color: #C2C8CC;
+	*/
+	
+}
+
+tr.odd {
+	background-color: Scrollbar;
+}
+
+tr.even {
+	background-color: #FFFFFF;
+}
+
+tr.item.selected {
+	background-color: transparent;
+	border: 1px solid red;
+}
+
+table {
+	border-spacing: 0px;
+}
+
+tbody.plain {
+	border: 1px solid;
+	border-color: #3333ff;
+	/*
+  overflow-y: scroll;
+	height: 500px; 
+*/
+}
+
+input:focus {
+	border: 2px solid;
+}
+
+div.attached {
+	float: left;
+	width: 30%;
+	height: 150px;
+	border: 1px solid red;
+}
+
+div.contents {
+	position: relative;
+}
+
+div.content {
+	border: 2px solid blue;
+	position: absolute;
+	font-family: cursive;
+	font-size: 64pt;
+	height: 500px;
+	display: block;
+	top: 0px;
+	left: 0px;
+}
+
+div.hidden {
+	display: none;
+}

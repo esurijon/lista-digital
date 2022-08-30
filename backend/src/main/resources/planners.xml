@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<planners>
+	<planner id="0" state="E">
+		<name>Lista Digital</name>
+		<user>info@listadigital.com.ar</user>
+		<password>97bbc79679fe1cfd9afb52fd6f01d033b479555d</password>
+		<resetToken>unset</resetToken>
+		<contactPerson>Lista Digital</contactPerson>
+		<address>N/A</address>
+		<phone>N/A</phone>
+		<registrationdate>2009/01/01 -0300</registrationdate>
+		<permissions>
+			<permission type="readEnabled" granted="true" expires="never" />
+			<permission expires="never" granted="true" type="writeEnabled" />
+		</permissions>
+	</planner>
+</planners>

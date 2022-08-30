@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista Digital | Ayuda</title>
+<link href="css/estilos.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/ld-static/js/lib/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/jquery.timers-1.2.js"></script>
+<script type="text/javascript" src="/ld-static/js/lib/sarissa.js"></script>
+<script type="text/javascript" src="/ld-static/js/jquery.ext.js"></script>
+<script type="text/javascript" src="/ld-static/js/common.js"></script>
+
+<script type="text/javascript" src="/ld-static/js/home.js"></script>
+
+<script type="text/javascript">
+
+var error;
+var slider;
+var resetPassword;
+var login;
+var registerPlanner;
+
+$(document).ready(function() {
+try {
+	if(clientSupport()) {
+		error = new Error($('#error'));
+		slider = new Slider('contents', 'keypad', 20000, 2500);
+		resetPassword = new ResetPassword($('#resetPassword'));
+		login = new Login($('#login'));
+		registerPlanner = new RegisterPlanner($('#registerPlanner'));
+
+		slider.play(true);
+
+		var trackMessage = function(msg){
+			$.ajax({
+				url: '/ld/track',
+				data: msg
+			});
+		};
+
+		var paramActions = {
+			REGISTER : registerPlanner.show,
+			CHANGE_PASSWORD : changePassword.show,
+			ACTIVATE_ACCOUNT : activateAccount.show,
+			TRACK : trackMessage
+		};
+		
+		var hasAction = false;
+		var params = unescape(document.location.search.substring(1)).decode64().split('&');
+		for(var i in params) {
+			var action = params[i].split('=')[0];
+			var args = params[i].split('=')[1];
+			if(paramActions[action]) {
+				paramActions[action](args);
+				hasAction = true;
+			}
+		}
+	}
+} catch(e) {
+	alert(e.message);
+}
+
+});
+
+</script>
+
+</head>
+
+<body>
+<div id="page">
+
+	<div id="header">
+ 		<div id="logo"></div>
+
+		<div id="login">
+			<form method="post">
+				<div class="title">
+	      	Iniciar Sesión
+	      </div>
+
+				<select name="PLANNER_ID" class="gray">
+					<option value="none">Organizador</option>
+					<option value="0">Lista Digital</option>
+					<option value="separator">-------------------------------</option>
+				</select>
+				<input type="text" name="USER" value="e-mail" class="gray"/>
+			 	<input type="text" name="PASSWORD_LBL" value="Contraseña" class="gray"/>
+			 	<input type="password" name="PASSWORD" value="" class="hidden"/>
+
+      	<span action="resetPassword" class="forgot-pass">¿Olvidé mi contraseña?</span>
+      	<a action="login" href="#" class="login">INGRESAR</a>
+			</form>
+		</div>
+		
+		<div id="nav-bar">
+			<a href="home.html" class="home">Home</a>
+			<a href="offers.html" class="ofertas">Ofertas y Servicios</a>
+			<a href="mailto:info@listadigital.com.ar" class="contacto">Contáctenos</a>
+			<div class="separador-gris" style="margin-left: 1px;"></div>
+			<div class="separador-gris"></div>
+			<div id="showRegisterForm" class="registro">REGISTRARSE</div>
+		</div>
+
+  </div>
+
+	<div id="body">
+
+   	<h1 class="texto-seccion">Mesa de Ayuda</h1>
+		<h2 class="texto-titulo">Página en construcción</h2>
+	  <p class="cuerpo-texto">Lo sentimos estamos trabajando para brindarle un mejor servicio.</p>
+
+	</div>
+	
+</div>
+
+<!-- POPUPS -->
+<div id="error" class="hidden form_message"></div>
+
+<div id="resetPassword" class="hidden">
+	<div id="message" class="form-message"></div>
+	<form name="resetPassword" action="">
+		<label class="form-label">Organizador:</label>
+		<select name="PLANNER_ID" class="form-field">
+			<option value="none">Organizador</option>
+			<option value="0">Lista Digital</option>
+			<option value="separator">-------------------------------</option>
+		</select>
+		<label class="form-label">E-mail:</label>
+		<input name="USER" type="text" class="form-field"/>
+	</form>
+</div>
+
+<div id="registerPlanner" class="hidden">
+	<div id="message" class="form-message"></div>
+	<form name="planner">
+		<label class="form-label">Empresa:</label><input name="name" type="text" class="form-field reg-field"/>
+		<label class="form-label">Dirección:</label><input name="address" type="text" class="form-field reg-field"/>
+		<label class="form-label">Teléfono:</label><input name="phone" type="text" class="form-field reg-field"/>
+		<label class="form-label">E-mail:</label><input name="user" type="text" class="form-field reg-field"/>
+		<label class="form-label">Persona de contacto:</label><input name="contactPerson" type="text" class="form-field reg-field"/>
+	</form>
+</div>
+
+</body>
+</html>
