@@ -37,7 +37,7 @@ public class ListingSevlet extends OnLineListsServlet {
 
 	private String getListType(HttpServletRequest req) {
 		String type = req.getRequestURI();
-		type = type.replace("/ld/list/", "");
+		type = type.replace(req.getContextPath() + "/list/", "");
 		return type;
 	}
 
