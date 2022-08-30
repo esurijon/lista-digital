@@ -30,7 +30,7 @@ jQuery.effects||(function(d){d.effects={version:"1.7.2",save:function(g,h){for(v
 
 ListaDigital = function(plannerId) {
 
-	$('head').append($('<link href="http://www.listadigital.com.ar/ld-static/css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />'));
+	$('head').append($('<link href="http://www.listadigital.com.ar/css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />'));
 	
 	var loginForm = $(
 		'<form method="post">' +
@@ -64,7 +64,7 @@ ListaDigital = function(plannerId) {
 	};
 	
 	var rolePageMap = {
-			HOST: 'http://www.listadigital.com.ar/ld-static/event/main.html',	
+			HOST: 'http://www.listadigital.com.ar/event/main.html',
 			PLANNER: 'http://www.listadigital.com.ar/ld/planner/main.html'	
 	};
 

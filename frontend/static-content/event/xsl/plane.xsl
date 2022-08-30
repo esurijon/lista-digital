@@ -5,7 +5,7 @@
     <xsl:apply-templates select="event/tables" />
   </xsl:template>
 
-  <xsl:param name="plane-url">/ld-static/planner-assets/hall.png</xsl:param>
+  <xsl:param name="plane-url">/planner-assets/hall.png</xsl:param>
 
   <xsl:template match="tables">
    <p class="noprint">Modifique la disposición de las mesas haciendo click sobre ellas y arrastrándolas<a id="add-table" href="#" style="float:right;">Agregar mesa+</a><a id="add-plane" href="#" style="float:right; margin-right:10px;">Subir plano+</a></p>

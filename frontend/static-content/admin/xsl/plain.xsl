@@ -61,7 +61,7 @@
       <td name="open" class="col5 evt-tool">
           <xsl:choose>
             <xsl:when test="@state = 'E' or @state = 'U'">
-              <a target="_blank" href="/ld-static/planner/main.html?PLANNER_ID={@id}">Ver</a>
+              <a target="_blank" href="/planner/main.html?PLANNER_ID={@id}">Ver</a>
             </xsl:when>
             <xsl:otherwise>
               <a class="ver" target="_blank" href="unsaved">Ver</a>

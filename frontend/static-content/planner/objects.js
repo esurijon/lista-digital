@@ -76,8 +76,8 @@ function Halls(container, xml) {
 				}
 			}
 			else{
-				$('input[name=plane]', container).val('/ld-static/planner-assets/hall.png');
-				$('#hall-plane', container).attr('src', '/ld-static/planner-assets/hall.png');
+				$('input[name=plane]', container).val('/planner-assets/hall.png');
+				$('#hall-plane', container).attr('src', '/planner-assets/hall.png');
 				$('input[name=plane-img]', container).attr('disabled', 'disabled');
 			}
 		});
@@ -106,7 +106,7 @@ function Halls(container, xml) {
 		$('input[name=name]', form).val($('name', selected).text());
 		$('#hall-plane', container).attr('src', $('plane', selected).text());
 		var plane = $('plane', selected).text();
-		if(plane == '/ld-static/planner-assets/hall.png' || plane == ''){
+		if(plane == '/planner-assets/hall.png' || plane == ''){
 			$($('input[name=view]', container)[0]).click();
 		} else {
 			$($('input[name=view]', container)[1]).click();
@@ -136,7 +136,7 @@ function Halls(container, xml) {
 		});
 		$('input[name=view]', container).removeAttr('disabled');
 		$('input[name=name]', form).val('');
-		$('#hall-plane', container).attr('src', '/ld-static/planner-assets/hall.png');
+		$('#hall-plane', container).attr('src', '/planner-assets/hall.png');
 		$($('input[name=view]', container)[0]).click();
 		
 		row.before(form);
@@ -198,7 +198,7 @@ function Halls(container, xml) {
 	var init = function(){
 		processor = new XSLTProcessor();
 		$.ajax({
-			url : "/ld-static/planner/xsl/halls.xsl",
+			url : "/planner/xsl/halls.xsl",
 			success : function(data) {
 				processor.importStylesheet(data);
 				$(that).trigger('ready', xml);
@@ -208,7 +208,7 @@ function Halls(container, xml) {
 
 	var upload = function() {
 		var uploadBtn = $('input[name=plane-img]', container);
-		$('#hall-plane', container).attr('src','/ld-static/img/throbber.gif');
+		$('#hall-plane', container).attr('src','/img/throbber.gif');
 		uploader.upload(function(data){
 			var planeUrl = $('message', data).text();
 			$('input[name=plane]', container).val(planeUrl);
@@ -466,7 +466,7 @@ function Events(container, xml) {
 	var init = function(){
 		processor = new XSLTProcessor();
 		$.ajax({
-			url : "/ld-static/planner/xsl/plain.xsl",
+			url : "/planner/xsl/plain.xsl",
 			success : function(data) {
 				processor.importStylesheet(data);
 				processor.setParameter(null, 'query-string', location.search.substring(1));  
@@ -524,7 +524,7 @@ function Events(container, xml) {
 }
 
 function Tools(container, plannerId) {
-	var loginHtml = '<a href=\'javascript:if(typeof(ListaDigital)=="undefined"){plannerId="' + plannerId + '";var LD_SCRIPT=document.createElement("script");LD_SCRIPT.src="http://www.listadigital.com.ar/ld-static/js/remoteLogin.js";LD_SCRIPT.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(LD_SCRIPT);}else{ListaDigital(plannerId);}void(null);\'>Ver mi Lista</a>';
+	var loginHtml = '<a href=\'javascript:if(typeof(ListaDigital)=="undefined"){plannerId="' + plannerId + '";var LD_SCRIPT=document.createElement("script");LD_SCRIPT.src="http://www.listadigital.com.ar/js/remoteLogin.js";LD_SCRIPT.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(LD_SCRIPT);}else{ListaDigital(plannerId);}void(null);\'>Ver mi Lista</a>';
 
 	var init = function() {
 		$('#tools').click(render);
@@ -551,7 +551,7 @@ function Payments(container) {
 	var init = function(){
 		processor = new XSLTProcessor();
 		var requests = [ {
-			url : '/ld-static/planner/xsl/payments.xsl',
+			url : '/planner/xsl/payments.xsl',
 			dataType : 'xml'
 		}, {
 			url : '/ld/payments/load' + location.search,
@@ -595,7 +595,7 @@ function Saver(xml) {
 	
 	var init = function() {
 		$.ajax({
-			url: '/ld-static/planner/xsl/changes.xsl', 
+			url: '/planner/xsl/changes.xsl',
 			success: function(data){ 
 				processor = new XSLTProcessor();
 				processor.importStylesheet(data);

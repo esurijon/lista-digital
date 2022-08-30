@@ -6,7 +6,7 @@ function Planners(container) {
 	var init = function() {
 		processor = new XSLTProcessor();
 		var requests = [ {
-			url : '/ld-static/admin/xsl/plain.xsl',
+			url : '/admin/xsl/plain.xsl',
 			dataType : 'xml'
 		}, {
 			url : '/ld/load/admin',

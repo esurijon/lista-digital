@@ -74,8 +74,8 @@ function Login(container) {
 	});
 	
 	var rolePageMap = {
-			HOST: '/ld-static/event/main.html',	
-			PLANNER: '/ld-static/planner/main.html'	
+			HOST: '/event/main.html',
+			PLANNER: '/planner/main.html'
 	};
 
 	var getField = function(field) {
@@ -105,7 +105,7 @@ function Login(container) {
 						var role = $('role',data).text();
 						var isStandAloneEvent = role == 'HOST' && $('select[name=PLANNER_ID]', form).val() == '0'; 
 						if(isStandAloneEvent) {
-							var url = '/ld-static/event/standalone.html';
+							var url = '/event/standalone.html';
 						} else {
 							var url = rolePageMap[role];
 						}

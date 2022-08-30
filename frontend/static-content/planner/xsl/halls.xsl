@@ -46,7 +46,7 @@
           <span>Subir plano:</span>
           <input name="plane-img" type="file" disabled="disabled" />
         </div>
-        <img id="hall-plane" src="/ld-static/planner-assets/hall.png"></img>
+        <img id="hall-plane" src="/planner-assets/hall.png"></img>
       </form>
     </div>
   </xsl:template>

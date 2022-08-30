@@ -173,7 +173,7 @@ function EventModel(controller) {
 	
 	var init = function() {
 		processor = new XSLTProcessor();
-		$.ajax({url: '/ld-static/event/xsl/changes.xsl', success: function(data){ saveXsl = data;}});
+		$.ajax({url: '/event/xsl/changes.xsl', success: function(data){ saveXsl = data;}});
 		processor.importStylesheet(saveXsl);
 		serializer = new XMLSerializer();
 
@@ -531,11 +531,11 @@ function EventView(controller, model) {
 	};
 
 	var loadAssets = function(data) {
-		$.ajax({url: "/ld-static/event/options.xml",success : function(data) {options = $(data);}});
-		$.ajax({url: "/ld-static/event/xsl/plain.xsl",success: function(data){trans.plain = data;}});
-		$.ajax({url: "/ld-static/event/xsl/grouped.xsl",success: function(data){trans.grouped = data;}});
-		$.ajax({url: "/ld-static/event/xsl/summary.xsl",success: function(data){trans.summary = data;}});
-		$.ajax({url: "/ld-static/event/xsl/plane.xsl",success: function(data){trans.plane = data;}});		
+		$.ajax({url: "/event/options.xml",success : function(data) {options = $(data);}});
+		$.ajax({url: "/event/xsl/plain.xsl",success: function(data){trans.plain = data;}});
+		$.ajax({url: "/event/xsl/grouped.xsl",success: function(data){trans.grouped = data;}});
+		$.ajax({url: "/event/xsl/summary.xsl",success: function(data){trans.summary = data;}});
+		$.ajax({url: "/event/xsl/plane.xsl",success: function(data){trans.plane = data;}});
 	};
 	
 	var init = function() {
@@ -891,9 +891,9 @@ function StandAloneEventInfo(container) {
 			'<input type="hidden" name="currency" value="ARG"/>' +
 			'<input type="hidden" name="ship_cost_mode" value=""/>' +
 			'<input type="hidden" name="op_retira" value=""/>' +
-			'<input type="hidden" name="url_process" value="http://www.listadigital.com.ar/ld-static/event/standalone.html?PROCESS"/>' +
-			'<input type="hidden" name="url_succesfull" value="http://www.listadigital.com.ar/ld-static/event/standalone.html?SUCCESFULL"/>' +
-			'<input type="hidden" name="url_cancel" value="http://www.listadigital.com.ar/ld-static/event/standalone.html?CANCEL"/>' +
+			'<input type="hidden" name="url_process" value="http://www.listadigital.com.ar/event/standalone.html?PROCESS"/>' +
+			'<input type="hidden" name="url_succesfull" value="http://www.listadigital.com.ar/event/standalone.html?SUCCESFULL"/>' +
+			'<input type="hidden" name="url_cancel" value="http://www.listadigital.com.ar/event/standalone.html?CANCEL"/>' +
 			'<input type="hidden" name="extra_part" value="STANDALONEEVENT-' + $('event',xml).attr('id') + '"/>' +
 			'<input type="submit" name="checkout" value="Extender permisos por 3 meses más" class="nxt-payment-button" />' +
 			'</form></span>';
@@ -958,7 +958,7 @@ function Tools(container) {
 		processor = new XSLTProcessor();
 		var async = 2;
 		$.ajax({
-			url : "/ld-static/event/xsl/tools.xsl",
+			url : "/event/xsl/tools.xsl",
 			success : function(data) {
 				processor.importStylesheet(data);
 				if(--async == 0) {
@@ -968,7 +968,7 @@ function Tools(container) {
 		});
 
 		$.ajax({
-			url : "/ld-static/event/tools.xml",
+			url : "/event/tools.xml",
 			success : function(data) {
 				xml = data; 
 				if(--async == 0) {

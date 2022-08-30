@@ -63,7 +63,7 @@
             <xsl:when test="@state = 'E' or @state = 'U'">
               <a class="ver" target="_blank">
                 <xsl:attribute name="href">
-                  <xsl:value-of select="concat('/ld-static/event/main.html?EVENT_ID=', @id, '&amp;', $query-string)"/>
+                  <xsl:value-of select="concat('/event/main.html?EVENT_ID=', @id, '&amp;', $query-string)"/>
                 </xsl:attribute> 
                 Ver
               </a>
