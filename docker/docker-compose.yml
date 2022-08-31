@@ -4,8 +4,6 @@ services:
 
   backend:
     image: esurijon/listadigital-backend
-    ports:
-      - "8080:8080"
     networks:
       - listadigital
 

@@ -17,7 +17,6 @@ public class Logout extends OnLineListsServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().invalidate();
-		String home = getComponent(Config.class).get("home.url");
-		response.sendRedirect(home.substring(home.indexOf('/',7)));
+		response.sendRedirect("http://" + request.getHeader("host"));
 	}
 }

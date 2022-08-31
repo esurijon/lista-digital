@@ -87,7 +87,7 @@ public class AssetsUploader extends MultipartServlet {
 				fUtil.streamOut(in, fos);
 				return fileUri + '/' + fileName;
 			} else {
-				return "/ld-static/planner-assets/hall.png";
+				return "/planner-assets/hall.png";
 			}
 		} catch (Exception e) {
 			throw new LdException(e);
