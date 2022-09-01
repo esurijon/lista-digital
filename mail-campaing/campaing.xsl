@@ -70,7 +70,7 @@
 <xsl:template name="header">
   <tr>
     <td align="center" style="border:0; padding: 0; margin: 0">
-      <img src="http://www.listadigital.com.ar/ld-static/img/logo-mail.png"></img>
+      <img src="http://www.listadigital.com.ar/img/logo-mail.png"></img>
     </td>
   </tr>
 </xsl:template>
@@ -147,7 +147,7 @@
     <li style="{$li}">
       <table>
         <tr>
-          <td><img src="http://www.listadigital.com.ar/ld-static/img/check.gif" width="20"></img></td>
+          <td><img src="http://www.listadigital.com.ar/img/check.gif" width="20"></img></td>
           <td>Listado de invitados ordenado por apellido y nombre.</td>
         </tr>
       </table>
@@ -155,7 +155,7 @@
     <li style="{$li}">
       <table>
         <tr>
-          <td><img src="http://www.listadigital.com.ar/ld-static/img/check.gif" width="20"></img></td>
+          <td><img src="http://www.listadigital.com.ar/img/check.gif" width="20"></img></td>
           <td>Listado por cada mesa (detallando: comensales, menúes, sillas para bebe, étc.)</td>
         </tr>
       </table>
@@ -163,7 +163,7 @@
     <li style="{$li}">
       <table>
         <tr>
-          <td><img src="http://www.listadigital.com.ar/ld-static/img/check.gif" width="20"></img></td>
+          <td><img src="http://www.listadigital.com.ar/img/check.gif" width="20"></img></td>
           <td>Plano con la ubicación de las mesas.</td>
         </tr>
       </table>
@@ -171,7 +171,7 @@
     <li style="{$li}">
       <table>
         <tr>
-          <td><img src="http://www.listadigital.com.ar/ld-static/img/check.gif" width="20"></img></td>
+          <td><img src="http://www.listadigital.com.ar/img/check.gif" width="20"></img></td>
           <td>Resumen general (cantidad de: invitados, mesas, menúes epeciales y observaciones pertinentes de cada invitado).</td>
         </tr>
        </table>
@@ -185,7 +185,7 @@
 	Es muy fácil, con sólo crear una cuenta indicando tu e-mail e información de contacto, ya podés comenzar a organizar tu próximo evento.
   </p>
   <p style="text-align: center; margin: 50px;">
-	  <a style="{$button}" href="http://www.listadigital.com.ar/ld-static/home.html?{$CLICK_REGISTER}">
+	  <a style="{$button}" href="http://www.listadigital.com.ar/home.html?{$CLICK_REGISTER}">
 	    REGISTRARME AHORA!
 	  </a>
   </p>
@@ -200,7 +200,7 @@
 	  La demo contiene la lista de invitados de un evento ficticio con todas las características con las que contaras para cualquiera de tus eventos. Animate! Accedé ahora y comenzá a familiarizarte con nuestro servicio.
 	</p>
 	<p style="text-align: center; margin: 50px;">
-	   <a style="{$button}" href="http://www.listadigital.com.ar/ld-static/demo/event.html">
+	   <a style="{$button}" href="http://www.listadigital.com.ar/demo/event.html">
 	     VER DEMO
 	   </a>
     </p>
@@ -208,10 +208,10 @@
     Ofertas y servicios:
   </h2>
  	<p style="{$p}">
-  	  Podés conocer más acerca de nosotros ingresando a <a href="http://www.listadigital.com.ar/ld-static/home.html?{$CLICK_HOME}">www.listadigital.com.ar</a> o consultar sobre nuestros planes y servicios.
+  	  Podés conocer más acerca de nosotros ingresando a <a href="http://www.listadigital.com.ar/home.html?{$CLICK_HOME}">www.listadigital.com.ar</a> o consultar sobre nuestros planes y servicios.
 	</p>
 	<p style="text-align: center; margin: 50px;">
-	   <a style="{$button}" href="http://www.listadigital.com.ar/ld-static/offers.html?{$CLICK_OFFERS}">
+	   <a style="{$button}" href="http://www.listadigital.com.ar/offers.html?{$CLICK_OFFERS}">
 	     VER PLANES
 	   </a>
     </p>

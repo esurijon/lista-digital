@@ -17,22 +17,44 @@ public class Config {
 	public Config() throws IOException {
 		reload();
 	}
-	
+
+	private String getOrFail(String property) {
+		if(props.containsKey(property)) {
+			return props.getProperty(property);
+		} else {
+			throw new EnvironmentException("Missing property: " + property);
+		}
+	}
 	public String getCurrentStorage(){
-		return props.getProperty("storage.root") + "CURRENT/";
+		return getOrFail("storage.root") + "CURRENT/";
 	} 
 
 	public String getBackupStorage(){
-		return props.getProperty("storage.root") + "BACKUP/";
+		return getOrFail("storage.root") + "BACKUP/";
 	}
 
-	public String getXslPath() {
-		return props.getProperty("xsl.path");
-	} 
+	public String getExternalLandingPageUrl() {
+		return getOrFail("external.landing-page.url");
+	}
 
+	public String getAdminUserName() {
+		return getOrFail("admin.user");
+	}
+	public String getAdminUserPassword() {
+		return getOrFail("admin.password");
+	}
+	public String getMercadoPagoAccountId() {
+		return getOrFail("mp.accountId");
+	}
+	public String getMercadoPagoSondaKey() {
+		return getOrFail("mp.sonda.key");
+	}
+	public String getMercadoPagoSondaUrl() {
+		return getOrFail("mp.sonda.url");
+	}
 	public String get(String key) {
-		return props.getProperty(key);
-	} 
+		return getOrFail(key);
+	}
 
 	public void reload() throws IOException {
 		File confFile = null;

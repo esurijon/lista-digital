@@ -42,7 +42,7 @@ public class ResetPassword extends OnLineListsServlet {
 				String changePasswordParams = "PLANNER=" + plannerName + "&" + Params.USER + "=" + user + "&" + Params.RESET_TOKEN + "=" + uuid.toString() + "&" + Params.PLANNER_ID + "=" + plannerId + "&ROLE=" + role;
 				changePasswordParams = Obfuscator.base64Encode(changePasswordParams);
 				String queryString = Obfuscator.base64Encode((Params.CHANGE_PASSWORD + "=" + changePasswordParams));
-				String changePasswordURL = conf.get("home.url") + "?" + queryString;
+				String changePasswordURL = conf.getExternalLandingPageUrl() + "?" + queryString;
 
 				MailSender ms = getComponent(MailSender.class);
 				ms.sendResetPasswordMail(user, plannerName, changePasswordURL);

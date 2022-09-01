@@ -61,9 +61,9 @@
 			<name>BASE PACK (Periodo #2)</name>
 			<currency>ARG</currency>
 			<price>190.0</price>
-			<process-url>http://www.listadigital.com.ar/ld-static/planner/main.html?PROCESS</process-url>
-			<succesfull-url>http://www.listadigital.com.ar/ld-static/planner/main.html?SUCCESFULL</succesfull-url>
-			<cancel-url>http://www.listadigital.com.ar/ld-static/planner/main.html?CANCEL</cancel-url>
+			<process-url>http://www.listadigital.com.ar/planner/main.html?PROCESS</process-url>
+			<succesfull-url>http://www.listadigital.com.ar/planner/main.html?SUCCESFULL</succesfull-url>
+			<cancel-url>http://www.listadigital.com.ar/planner/main.html?CANCEL</cancel-url>
 			<extra-part>]]><xsl:value-of select="$id"/><![CDATA[-2</extra-part>
 		</mp>
 	</next-payment>

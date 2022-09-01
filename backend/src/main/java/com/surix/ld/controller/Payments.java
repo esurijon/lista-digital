@@ -295,12 +295,12 @@ public class Payments extends OnLineListsServlet {
 		String mpOpId = request.getParameter("mp_op_id");
 
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("acc_id", conf.get("mp.accountId"));
-		params.put("sonda_key", conf.get("mp.sonda.key"));
+		params.put("acc_id", conf.getMercadoPagoAccountId());
+		params.put("sonda_key", conf.getMercadoPagoSondaKey());
 		params.put("mp_op_id", mpOpId);
 		params.put("seller_op_id", sellerOpId);
 
-		InputStream response = sendPostRequest(conf.get("mp.sonda.url"), params);
+		InputStream response = sendPostRequest(conf.getMercadoPagoSondaUrl(), params);
 		Document doc = null;
 		try {
 			doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(response);

@@ -55,7 +55,7 @@
 <xsl:template name="header">
 	<tr>
     <td align="center" style="border:0; padding: 0; margin: 0">
-      <img src="http://www.listadigital.com.ar/ld-static/img/logo-mail.png"></img>
+      <img src="http://www.listadigital.com.ar/img/logo-mail.png"></img>
     </td>
 	</tr>
 </xsl:template>

@@ -3,7 +3,7 @@
 <xsl:template match="/">
   <html>
     <head>
-      <script type="text/javascript" src="/ld-static/js/sarissa/sarissa.js"></script>
+      <script type="text/javascript" src="/js/sarissa/sarissa.js"></script>
       <script>
         var parser = new DOMParser();
         var xmlString = '<xsl:apply-templates select="response/message"/>';

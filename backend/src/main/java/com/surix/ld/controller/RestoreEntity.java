@@ -34,7 +34,7 @@ public class RestoreEntity extends OnLineListsServlet {
 	}
 
 	private String getReturnUrl(HttpServletRequest req) {
-		String returnUrl = "/ld-static/event/main.html";		
+		String returnUrl = "/event/main.html";
 
 		String urlParams = "?";
 

@@ -197,10 +197,6 @@ public class Login extends OnLineListsServlet {
 			User usr = new User("full", user, Role.ADMIN);
 			session.setAttribute(Params.USER.toString(), usr);
 			result = true;
-		} else if (admin.grantReadOnlyAdmin(user, password)) {
-			User usr = new User("readonly", user, Role.ADMIN);
-			session.setAttribute(Params.USER.toString(), usr);
-			result = true;
 		}
 		return result;
 	}

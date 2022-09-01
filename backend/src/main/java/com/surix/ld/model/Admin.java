@@ -220,14 +220,8 @@ public class Admin extends FileEntity {
 	}
 
 	public boolean grantAdmin(String user, String password) {
-		String adminUser = cfg.get("admin.user");
-		String adminPassword = cfg.get("admin.password");
-		return(adminUser.equals(user) && adminPassword.equals(password));
-	}
-
-	public boolean grantReadOnlyAdmin(String user, String password) {
-		String adminUser = cfg.get("admin.readonly.user");
-		String adminPassword = cfg.get("admin.readonly.password");
+		String adminUser = cfg.getAdminUserName();
+		String adminPassword = cfg.getAdminUserPassword();
 		return(adminUser.equals(user) && adminPassword.equals(password));
 	}
 

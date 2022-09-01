@@ -80,9 +80,9 @@
 			<currency>ARG</currency>
 			<price>190.0</price>
 
-			<process-url>http://www.listadigital.com.ar/ld-static/planner/main.html?PROCESS</process-url>
-			<succesfull-url>http://www.listadigital.com.ar/ld-static/planner/main.html?SUCCESFULL</succesfull-url>
-			<cancel-url>http://www.listadigital.com.ar/ld-static/planner/main.html?CANCEL</cancel-url>
+			<process-url>http://www.listadigital.com.ar/planner/main.html?PROCESS</process-url>
+			<succesfull-url>http://www.listadigital.com.ar/planner/main.html?SUCCESFULL</succesfull-url>
+			<cancel-url>http://www.listadigital.com.ar/planner/main.html?CANCEL</cancel-url>
 
 			<extra-part><xsl:value-of select="$planner-id"/>-<xsl:value-of select="$payment-ref-id + 1"/></extra-part>  
   		</mp>

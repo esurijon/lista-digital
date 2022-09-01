@@ -56,11 +56,9 @@ public class InitContainer implements ServletContextListener {
 
 	private void checkEnv(MutablePicoContainer container) throws LdException {
 		Config cfg = container.getComponent(Config.class);
-		File storageDir = new File((String) cfg.get("storage.root"));
-		directoryCheck(storageDir);
-		File backupDir = new File(storageDir, "BACKUP");
+		File backupDir = new File(cfg.getBackupStorage());
 		directoryCheck(backupDir);
-		File currentDir = new File(storageDir, "CURRENT");
+		File currentDir = new File(cfg.getCurrentStorage());
 		directoryCheck(currentDir);
 		plannersCheck(container.getComponent(FileUtil.class), currentDir);
 		defaultPalnnerCheck(container.getComponent(FileUtil.class), currentDir);

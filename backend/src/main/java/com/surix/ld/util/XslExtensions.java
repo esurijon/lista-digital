@@ -110,7 +110,7 @@ public class XslExtensions {
 		try {
 			String activationParams = Obfuscator.base64Encode("PLANNER=" + planner + "&" + Params.USER + "=" + to + "&" + Params.RESET_TOKEN + "=" + activationToken + "&ROLE=PLANNER");
 			String queryString = Obfuscator.base64Encode((Params.ACTIVATE_ACCOUNT + "=" + activationParams));
-			String activationURL = config.get("home.url") + "?" + queryString;
+			String activationURL = config.getExternalLandingPageUrl() + "?" + queryString;
 			mailSender.sendActivatePlannerAccountMail(to, planner, activationURL);
 			return "";
 		} catch (LdException e) {
@@ -124,7 +124,7 @@ public class XslExtensions {
 			String activationParams = Obfuscator.base64Encode("PLANNER=" + plannerName + "&" + Params.PLANNER_ID + "=" + plannerId + "&" + Params.USER + "=" + to + "&" + Params.RESET_TOKEN + "=" + activationToken
 					+ "&ROLE=HOST");
 			String queryString = Obfuscator.base64Encode(Params.ACTIVATE_ACCOUNT + "=" + activationParams);
-			String activationURL = config.get("home.url") + "?" + queryString;
+			String activationURL = config.getExternalLandingPageUrl() + "?" + queryString;
 			mailSender.sendActivateHostAccountMail(to, plannerName, activationURL);
 			return "";
 		} catch (LdException e) {

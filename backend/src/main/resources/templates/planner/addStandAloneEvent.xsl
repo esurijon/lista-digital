@@ -13,7 +13,7 @@
 	</events>
 	<halls>
 		<hall id="{$hall-id}" state="N">
-			<plane>/ld-static/planner-assets/hall.png</plane>
+			<plane>/planner-assets/hall.png</plane>
 			<name>
         <xsl:value-of select="//hosts/host[1]/lastname"/>_<xsl:value-of select="//hosts/host[2]/lastname"/>_<xsl:value-of select="//date"/>
       </name>
