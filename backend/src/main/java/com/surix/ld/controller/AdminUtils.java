@@ -35,7 +35,7 @@ public class AdminUtils extends OnLineListsServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String operation = request.getRequestURI();
-		operation = operation.replace("/ld/admin/utils/", "");
+		operation = operation.replace(request.getContextPath() + "/admin/utils/", "");
 
 		HttpSession session = request.getSession(false);
 		User user = (User) session.getAttribute(Params.USER.toString());

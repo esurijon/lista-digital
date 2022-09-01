@@ -157,7 +157,7 @@ public class Payments extends OnLineListsServlet {
 		LOAD, NOTIFY;
 
 		public static Action getFromContext(HttpServletRequest context) {
-			String action = context.getRequestURI().replace("/ld/payments/", "").toUpperCase();
+			String action = context.getRequestURI().replace(context.getContextPath() + "/payments/", "").toUpperCase();
 			return Action.valueOf(action);
 		}
 	}

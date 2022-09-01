@@ -2,6 +2,7 @@ package com.surix.ld.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Writer;
 import java.net.URL;
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class XMLUtils {
 	private XPathFactory xPathFactory = XPathFactory.newInstance();
 	private TransformerFactory tf = TransformerFactory.newInstance();
 
-	private FileCache<Templates> templates = new FileCache<Templates>();
+	private Map<String, Templates> templates = new HashMap<String, Templates>();
 	private Config conf;
 	private URIResolver uriResolver;
 
@@ -51,14 +52,14 @@ public class XMLUtils {
 		try {
 			Transformer transformer;
 			if (xsl != null && xsl.length() > 0) {
-				File templateFile = new File(conf.getXslPath() + xsl);
-				Templates template = templates.get(templateFile);
+				String templateName = "templates/" + xsl;
+				Templates template = templates.get(templateName);
 				if (template == null) {
-					URL sourceURL = templateFile.toURI().toURL();
-					Source source = new StreamSource(sourceURL.openStream());
-					source.setSystemId(sourceURL.toExternalForm());
+					InputStream templateStream = this.getClass().getClassLoader().getResourceAsStream(templateName);
+					Source source = new StreamSource(templateStream);
+					source.setSystemId(templateName);
 					template = tf.newTemplates(source);
-					templates.put(templateFile, template);
+					templates.put(templateName, template);
 				}
 				transformer = template.newTransformer();
 				for (ParamValue<Object> param : params) {
@@ -70,8 +71,6 @@ public class XMLUtils {
 			}
 			return transformer;
 		} catch (TransformerException e) {
-			throw new EnvironmentException(e);
-		} catch (IOException e) {
 			throw new EnvironmentException(e);
 		}
 	}

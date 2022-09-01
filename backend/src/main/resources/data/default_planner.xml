@@ -33,7 +33,7 @@
 	</events>
 	<halls>
 		<hall id="0" state="E">
-			<plane>/planner-assets/hall.png</plane>
+			<plane>/ld-static/planner-assets/hall.png</plane>
 			<name>Salón Dorado</name>
 		</hall>
 	</halls>

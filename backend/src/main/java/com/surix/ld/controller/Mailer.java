@@ -55,7 +55,7 @@ public class Mailer extends MultipartServlet {
 					FileItemStream part = parts.next();
 					if ("xml".equals(part.getFieldName())) {
 						xml = docBuilder.parse(part.openStream());
-					} else if ("xsl".equals(part.getFieldName())) {
+					} else if ("templates".equals(part.getFieldName())) {
 						Source xsl = new StreamSource(part.openStream());
 						xslt = tFactory.newTransformer(xsl);
 					}

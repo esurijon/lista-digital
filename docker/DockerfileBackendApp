@@ -5,8 +5,9 @@ COPY pom.xml .
 RUN mvn -B dependency:resolve-plugins dependency:resolve dependency:go-offline
 
 COPY src/ ./src
-RUN mvn -DskipTests package
+RUN mvn package
 
 # Step: package executable app
 FROM tomcat:6
+COPY docker-local.properties /root/listadigital.properties
 COPY --from=build /target/lista-digital.war /usr/local/tomcat/webapps/

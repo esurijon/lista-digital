@@ -6,4 +6,9 @@ public class EnvironmentException extends RuntimeException {
 	public EnvironmentException(Throwable t) {
 		super(t);
 	}
+
+	public EnvironmentException(String message) {
+		super(message);
+	}
+
 }
